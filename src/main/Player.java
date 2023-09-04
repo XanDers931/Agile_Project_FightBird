@@ -70,4 +70,17 @@ public class Player {
     public void increaseAmmo(int multiplier){
         this.ammo += INCREASE_ATTACK_AMMO * multiplier;
     }
+
+    public void attackEnnemy(Ennemy otherEnnemy){
+        otherEnnemy.takeDamage(this.attack_value);
+    }
+
+    public void takeDamage(int damage){
+        if(this.health_point-damage<0){
+            this.health_point=0;
+        }
+        else {
+            this.health_point-=damage;
+        }
+    }
 }

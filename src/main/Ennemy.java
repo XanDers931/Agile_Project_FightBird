@@ -15,6 +15,10 @@ public class Ennemy {
         this.attack = attack;
     }
 
+    public Ennemy(){
+        this("Piaf-piaf",20,1);
+    }
+
     public int getPVMAX() {
         return PVMAX;
     }
@@ -38,4 +42,10 @@ public class Ennemy {
             pv-=damage;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Ennemy [name=" + name + ", pv=" + pv + ", PVMAX=" + PVMAX + ", attack=" + attack + "]";
+    }
+    
 }
