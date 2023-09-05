@@ -35,10 +35,14 @@ public class Inventory {
         cloneInventory = (ArrayList<Item>) inventory.clone();
 
         while (!finish){
+
+            inventorySize = player.getInventory().inventory.size();
             afficherChoix(player, curseur, itemSelection);
             
-            System.out.println("q and d to scroll weapon,e to confirm, a to cancel (Only first charactere is take in count)");
+            System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
+
             read = sc.nextLine();
+            
             c = read.charAt(0);
 
             if (c == 'q'){
@@ -47,7 +51,7 @@ public class Inventory {
                 }   
             }
             if (c == 'd'){
-                if (itemSelection <= inventorySize-2){
+                if (itemSelection <= inventorySize - 2){
                   itemSelection = itemSelection + 1;  
                 }   
             }
@@ -59,10 +63,11 @@ public class Inventory {
                 itemSelection = 0;
             }
             if (c == 'a'){
-                choice[progress] = null;
-                moveCursorUp(curseur);
-                progress = progress - 1;
-                
+                if (progress != 0){
+                    choice[progress] = null;
+                    moveCursorUp(curseur);
+                    progress = progress - 1;
+                } 
             }
             if (progress == 4){
                 finish = true;
@@ -119,14 +124,16 @@ public class Inventory {
         player.getInventory().inventory.add(item);
     }
 
-    public void emptySpace(Player player,int tmp){
-        int y = BOXSIZE - player.getInventory().inventory.get(tmp).toString().length();
+    public void emptySpace(String tmp){
+        int y = BOXSIZE - tmp.length();
         for (int i = 0; i < y; i++){
             System.out.print(" ");
         }
     }
 
     public void afficherChoix(Player player, boolean[] curseur,int tmp){
+
+        String rep = "";
 
         //l1
         System.out.println("┌───┬────────────────────┐");
@@ -138,12 +145,14 @@ public class Inventory {
         System.out.print("│");
         if (curseur[0] == true){
             System.out.print(player.getInventory().inventory.get(tmp).toString());
-            emptySpace(player,tmp);
+            rep = player.getInventory().inventory.get(tmp).toString();
+            emptySpace(rep);
         } else if (choice[0] == null){
             System.out.print(" ------------------ ");
         } else {
             System.out.print(choice[0].toString());
-            emptySpace(player,0);
+            rep = choice[0].toString();
+            emptySpace(rep);
         }
         System.out.println("│");
 
@@ -157,12 +166,14 @@ public class Inventory {
         System.out.print("│");
         if (curseur[1] == true){
             System.out.print(player.getInventory().inventory.get(tmp).toString());
-            emptySpace(player,tmp);
+            rep = player.getInventory().inventory.get(tmp).toString();
+            emptySpace(rep);
         } else if (choice[1] == null){
             System.out.print(" ------------------ ");
         } else {
             System.out.print(choice[1].toString());
-            emptySpace(player,1);
+            rep = choice[1].toString();
+            emptySpace(rep);
         }
         System.out.println("│");
 
@@ -176,12 +187,14 @@ public class Inventory {
         System.out.print("│");
         if (curseur[2] == true){
             System.out.print(player.getInventory().inventory.get(tmp).toString());
-            emptySpace(player,tmp);
+            rep = player.getInventory().inventory.get(tmp).toString();
+            emptySpace(rep);
         } else if (choice[2] == null){
             System.out.print(" ------------------ ");
         } else {
             System.out.print(choice[2].toString());
-            emptySpace(player,2);
+            rep = choice[2].toString();
+            emptySpace(rep);
         }
         System.out.println("│");
 
@@ -195,12 +208,14 @@ public class Inventory {
         System.out.print("│");
         if (curseur[3] == true){
             System.out.print(player.getInventory().inventory.get(tmp).toString());
-            emptySpace(player,tmp);
+            rep = player.getInventory().inventory.get(tmp).toString();
+            emptySpace(rep);
         } else if (choice[3] == null){
             System.out.print(" ------------------ ");
         } else {
             System.out.print(choice[3].toString());
-            emptySpace(player,3);
+            rep = choice[3].toString();
+            emptySpace(rep);
         }
         System.out.println("│");
 
@@ -212,13 +227,4 @@ public class Inventory {
 
     }
 
-    public static void main(String[] args) {
-        Player player = new Player();
-        player.getInventory().addItem(player,new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
-        player.getInventory().addItem(player,new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
-        player.getInventory().addItem(player,new Range("bow", Type.RANGE, 0, 0, 0, 0, 0));
-        player.getInventory().addItem(player,new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
-        player.getInventory().addItem(player,new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
-        player.getInventory().openInventory(player);
-    }
 }
