@@ -260,6 +260,7 @@ public class Inventory {
 
     }
 
+    /*
     public static void main(String[] args) {
             Player player = new Player();
             player.getInventory().addItem(player,new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
@@ -269,6 +270,7 @@ public class Inventory {
             player.getInventory().addItem(player,new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
             player.getInventory().addItem(player,new Special("paper", Type.SPECIAL, 100, 100, 100, 1, TypeGame.SHIFUMI));
             player.getInventory().openInventory(player);
-        }
+    }
+    */
 
 }
