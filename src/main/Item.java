@@ -1,6 +1,6 @@
 package main;
 
-public class Item {
+public abstract class Item {
     String name;
     Type type;
     int damage;
@@ -19,5 +19,31 @@ public class Item {
 
     public String toString(){
         return this.name;
+    }
+
+    public abstract int damageTotal(int attack_multiplier);
+
+    public String getName() {
+        return name;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getCritical_rate() {
+        return critical_rate;
+    }
+
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    public int getRarity() {
+        return rarity;
     }
 }
