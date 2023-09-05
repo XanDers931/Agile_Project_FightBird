@@ -15,11 +15,15 @@ public class Inventory {
         this.inventory = inventory;
     }
 
+    public Inventory() {
+        this.inventory = new ArrayList<Item>();
+    }
+
     public Item[] getChoice() {
         return choice;
     }
 
-    public void openInventory(Player player){
+    public void openInventory(){
 
         boolean curseur[] = {true,false,false,false};
         Scanner sc = new Scanner(System.in);
@@ -29,15 +33,15 @@ public class Inventory {
         int itemSelection = 0;
         int progress = 0;
 
-        int inventorySize = player.getInventory().inventory.size();
+        int inventorySize = inventory.size();
         boolean finish = false;
 
         cloneInventory = (ArrayList<Item>) inventory.clone();
 
         while (!finish){
 
-            inventorySize = player.getInventory().inventory.size();
-            afficherChoix(player, curseur, itemSelection);
+            inventorySize = inventory.size();
+            afficherChoix(curseur, itemSelection);
             
             System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
 
@@ -155,8 +159,8 @@ public class Inventory {
         }        
     }
 
-    public void addItem(Player player, Item item){
-        player.getInventory().inventory.add(item);
+    public void addItem(Item item){
+        inventory.add(item);
     }
 
     public void emptySpace(String tmp){
@@ -166,7 +170,7 @@ public class Inventory {
         }
     }
 
-    public void afficherChoix(Player player, boolean[] curseur,int tmp){
+    public void afficherChoix(boolean[] curseur,int tmp){
 
         String rep = "";
 
@@ -179,8 +183,8 @@ public class Inventory {
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[0] == true){
-            System.out.print(player.getInventory().inventory.get(tmp).toString());
-            rep = player.getInventory().inventory.get(tmp).toString();
+            System.out.print(inventory.get(tmp).toString());
+            rep = inventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[0] == null){
             System.out.print(" ------------------ ");
@@ -200,8 +204,8 @@ public class Inventory {
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[1] == true){
-            System.out.print(player.getInventory().inventory.get(tmp).toString());
-            rep = player.getInventory().inventory.get(tmp).toString();
+            System.out.print(inventory.get(tmp).toString());
+            rep = inventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[1] == null){
             System.out.print(" ------------------ ");
@@ -221,8 +225,8 @@ public class Inventory {
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[2] == true){
-            System.out.print(player.getInventory().inventory.get(tmp).toString());
-            rep = player.getInventory().inventory.get(tmp).toString();
+            System.out.print(inventory.get(tmp).toString());
+            rep = inventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[2] == null){
             System.out.print(" ------------------ ");
@@ -242,8 +246,8 @@ public class Inventory {
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[3] == true){
-            System.out.print(player.getInventory().inventory.get(tmp).toString());
-            rep = player.getInventory().inventory.get(tmp).toString();
+            System.out.print(inventory.get(tmp).toString());
+            rep = inventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[3] == null){
             System.out.print(" ------------------ ");
@@ -262,14 +266,14 @@ public class Inventory {
 
     /*
     public static void main(String[] args) {
-            Player player = new Player();
-            player.getInventory().addItem(player,new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
-            player.getInventory().addItem(player,new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
-            player.getInventory().addItem(player,new Range("bow fofofofo", Type.RANGE, 0, 0, 0, 0, 0));
-            player.getInventory().addItem(player,new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
-            player.getInventory().addItem(player,new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
-            player.getInventory().addItem(player,new Special("paper", Type.SPECIAL, 100, 100, 100, 1, TypeGame.SHIFUMI));
-            player.getInventory().openInventory(player);
+            Inventory inventory = new Inventory();
+            inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
+            inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
+            inventory.addItem(new Range("bow fofofofo", Type.RANGE, 0, 0, 0, 0, 0));
+            inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
+            inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
+            inventory.addItem(new Special("paper", Type.SPECIAL, 100, 100, 100, 1, TypeGame.SHIFUMI));
+            inventory.openInventory();
     }
     */
 
