@@ -1,0 +1,12 @@
+NOM;TYPE;DAMAGE;CRITICAL_RATE;ACCURACY;RARITY;USE_MANA
+Stick;Magic;3;50;80;1;25
+Wand;Magic;8;35;90;2;30
+Scepter;Magic;20;20;100;3;40
+Gandalf's mystical staff;Magic;35;50;70;4;50
+Tradition;Magic;50;40;100;5;60
+Phoenix;Magic;5;25;70;1;30
+Dragon;Magic;10;20;75;2;40
+Eagle;Magic;25;10;90;3;50
+Dog;Magic;40;40;80;4;60
+Rat;Magic;60;10;60;5;80
+Worm;1000;100;100;6;500
