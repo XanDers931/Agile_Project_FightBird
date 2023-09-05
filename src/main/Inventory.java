@@ -15,6 +15,10 @@ public class Inventory {
         this.inventory = inventory;
     }
 
+    public Item[] getChoice() {
+        return choice;
+    }
+
     public void openInventory(Player player){
 
         boolean curseur[] = {true,false,false,false};
