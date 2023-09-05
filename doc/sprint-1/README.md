@@ -18,7 +18,7 @@ Ajouter les différents types d'items (Melee, Range, Magic et Special)
 Poursuite de l'inventaire
 Création des mini-jeux liés aux items
 
-# PDCA
+### PDCA
 
 Problème : 
 L'inventaire
