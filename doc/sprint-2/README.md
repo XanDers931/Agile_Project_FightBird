@@ -23,7 +23,6 @@ Approche d'un stade de finalisation pour l'inventaire ou implementation si possi
 Apports de visuels en tout genre
 
 ### PDCA
-
 Problème : 
 
 

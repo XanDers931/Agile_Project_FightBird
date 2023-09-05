@@ -19,7 +19,6 @@ Poursuite de l'inventaire
 Création des mini-jeux liés aux items
 
 ### PDCA
-
 Problème : 
 L'inventaire
 
