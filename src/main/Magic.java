@@ -3,13 +3,16 @@ package main;
 import java.util.Random;
 
 public class Magic extends Item{
-    private static final int CRIT_MULTIPLIER = 2;
-    private static final int MISSED_HIT_DAMAGE = 0;
-    private static final int USE_MANA = 10;
-
-
-    public Magic(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity) {
+    private int crit_multipler;
+    private int missed_hit_damage;
+    private int use_mana;
+    
+    public Magic(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int crit_multipler,
+            int missed_hit_damage, int use_mana) {
         super(nom, type, damage, critical_rate, accuracy, rarity);
+        this.crit_multipler = crit_multipler;
+        this.missed_hit_damage = missed_hit_damage;
+        this.use_mana = use_mana;
     }
 
     private boolean hitSuccess(){
@@ -25,16 +28,12 @@ public class Magic extends Item{
     public int damageTotal(int attack_multiplier){
         int damage_value = this.damage * attack_multiplier;
         if (!this.hitSuccess()){
-            return MISSED_HIT_DAMAGE;
+            return missed_hit_damage;
         }else{
             if(this.hitCritical()){
-                damage_value *= CRIT_MULTIPLIER;
+                damage_value *= crit_multipler;
             }
             return damage_value;
         }
-    }
-
-    public int usedMana(){
-        if(this.hitSuccess) return USE_MANA;
     }
 }
