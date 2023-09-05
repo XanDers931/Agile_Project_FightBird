@@ -29,14 +29,24 @@ public class Fight {
 
     public void playerAttack(Item usedItem){
         if(this.canAttack(usedItem)){
-            ennemy.takeDamage(usedItem.damageTotal(player.getAttack_value()));
-            System.out.println("you hit "+ usedItem.damageTotal(player.getAttack_value()));
+            if(usedItem.getType() == Type.MAGIC){
+            Magic magicItem = (Magic) usedItem;
+            player.decreaseMana(magicItem.getUse_mana());
+        }
+        if(usedItem.getType()== Type.RANGE){
+            Range rangeItem = (Range) usedItem;
+            player.decreaseAmmo(rangeItem.getUse_ammo());
+        }
+            int damage = usedItem.damageTotal(player.getAttack_value());
+            ennemy.takeDamage(damage);
+            System.out.println(damage);
         }
     }
 
     public void ennemyAttack(){
-        player.takeDamage(ennemy.getAttack());
-        System.out.println("you get hit "+ ennemy.getAttack());
+        int damage = ennemy.getAttack();
+        player.takeDamage(damage);
+        System.out.println("you get hit "+ damage);
     }
 
     public void fight(Item usedItem){

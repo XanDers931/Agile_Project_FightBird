@@ -12,16 +12,18 @@ public class Main {
         Fight fight = new Fight(player, ennemy);
         Melee melee = new Melee("batte", Type.MELEE, 10, 15, 95, 2);
         Magic magic = new Magic("magie", Type.MAGIC, 5, 10, 95, 2, 12);
-        Range range = new Range("bateau", Type.RANGE, 80, 15, 55, 2,3);
-        Special dice = new Special("Dice", Type.SPECIAL, 20, 0, 0, 0, TypeGame.DICE);
+        Range range = new Range("bateau", Type.RANGE, 80, 15, 55, 2,1);
+        Special dice = new Special("Scissors", Type.SPECIAL, 20, 0, 0, 0, TypeGame.SHIFUMI);
         Scanner sc = new Scanner(System.in);
         String select = "";
         while(!fight.isFinished()){
+            Visuals.clear();
+            Visuals.printFight();
             System.out.println(" \n Player status :");
             System.out.println(player);
             System.out.println(" \n Ennemy status:");
             System.out.println(ennemy);
-            System.out.println("Select weapon : 1 melee 2 magic 3 range");
+            System.out.println("Select weapon : 1 melee 2 magic 3 range 4 special");
             select = sc.nextLine();
             switch (select) {
                 case "1":
@@ -39,7 +41,7 @@ public class Main {
                 default:
                     break;
             }
-            System.out.flush();
+            Visuals.wait(sc);
         }
     }
     public static void main(String[] args) {
@@ -63,17 +65,17 @@ public class Main {
                 break;
             case "0":
                 
-                    break;
+                break;
             default:
                 break;
             }
+        Visuals.clear();
         
     }
 
     public static void rules(){
         Visuals.printRules();
-        System.out.println("Press Enter");
         Scanner sc = new Scanner(System.in);
-        String select = "";
+        Visuals.wait(sc);
     }
 }

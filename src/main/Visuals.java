@@ -32,4 +32,13 @@ public class Visuals {
     public static void printFight(){
         System.out.println(printTextFile(HUD_PATH));
     }
+    public static void clear(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+    public static void wait(Scanner scanner){
+        String select;
+        System.out.println("Press Enter");
+        select = scanner.nextLine();
+    }
 }

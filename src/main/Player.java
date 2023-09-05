@@ -84,6 +84,14 @@ public class Player {
         otherEnnemy.takeDamage(this.attack_value);
     }
 
+    public void decreaseMana(int decreaseMana){
+        this.mana_point -= decreaseMana;
+    }
+
+    public void decreaseAmmo(int decreaseAmmo){
+        this.mana_point -= decreaseAmmo;
+    }
+
     public void takeDamage(int damage){
         if(this.health_point-damage<0){
             this.health_point=0;
