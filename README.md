@@ -25,6 +25,10 @@
 * special weapon : rock, papers, scissors, dice, flashbang, reverse
 * magic : magic stick (stick, wand, scepter, Gandalf's big mystical staff, Tradition) / invocation(phoenix, dragon, eagle, dog, rat, worm)
 
+### damage :
+* for each weapon there is a base damage and the total gain will be the multiplication between base weapon damage and player stats
+* for special weapons there is a special supplementary multiplier to damage what will go crazy
+
 ### Difficulty: 
 * every 5 level a boss spawn and if defeated increase reward from fight and collecting treasure
 
