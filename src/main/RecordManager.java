@@ -8,12 +8,12 @@ public class RecordManager {
     private static final String RECORD_PATH = "res/record.txt";
 
     private static void editBestScore(String name, int score){
+        String res = score + "point";
         try (PrintWriter pw = new PrintWriter(new File(RECORD_PATH))) {
             if(score > 2){
-                pw.println(name + " : " + score + "points");
-            }else{
-                pw.println(name + " : " + score + "point");
+                res += "s";
             }
+            pw.println(res);
             pw.flush();
             pw.close();
         } catch (FileNotFoundException e) {
