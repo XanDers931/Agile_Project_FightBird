@@ -9,6 +9,7 @@ public class ImportWeapons {
     private static final String PATH_MELEE = "res/melee_weapon.csv";
     private static final String PATH_RANGE = "res/range_weapon.csv";
     private static final String PATH_MAGIC = "res/magic_weapon.csv";
+    private static final String PATH_SPECIAL = "res/special_weapon.csv";
 
 
     private static Melee importMelee(String line){
@@ -91,5 +92,38 @@ public class ImportWeapons {
             e.printStackTrace();
         }
         return list;
+    }
+
+    private static Special importSpecial(String line){
+        try (Scanner sc = new Scanner(line).useDelimiter(";")) {
+            String name = sc.next();
+            Type type = Type.valueOf(sc.next());
+            int damage = Integer.parseInt(sc.next());
+            int critical = Integer.parseInt(sc.next());
+            TypeGame game = TypeGame.valueOf(sc.next());
+
+
+            return new Special(name,type, damage, critical, game);
+        }
+    }
+
+    public static ArrayList<Item> listSpecial(){
+        ArrayList<Item> list = new ArrayList<Item>();
+        try (Scanner sc = new Scanner(new File(PATH_SPECIAL))) {
+            sc.nextLine();
+            while(sc.hasNextLine()){
+                list.add(ImportWeapons.importSpecial(sc.nextLine()));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(listMelees());
+        System.out.println(listMagic());
+        System.out.println(listRange());
+        System.out.println(listSpecial());
     }
 }

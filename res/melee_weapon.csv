@@ -9,5 +9,5 @@ Wooden Pick Pick;MELEE;1;3;90;0
 Stone Pick Pick;MELEE;3;6;90;1
 Iron Pick Pick;MELEE;6;11;90;2
 Diamond Pick Pick;MELEE;11;20;90;3
-Master Pick Pick;MELEE:20;40;90;4
-Legendary Pick Pick;MELEE:40;60;90;5
+Master Pick Pick;MELEE;20;40;90;4
+Legendary Pick Pick;MELEE;40;60;90;5
