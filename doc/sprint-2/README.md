@@ -22,16 +22,6 @@ Création du menu du jeu
 Approche d'un stade de finalisation pour l'inventaire ou implementation si possible
 Apports de visuels en tout genre
 
-### PDCA
-Problème : 
-
-
-Indicateur :
-
-
-Options :
-
-
 # Mémo
 N’oubliez pas d’ajouter une photo du radiateur d’information au moment de la rétrospective.
 

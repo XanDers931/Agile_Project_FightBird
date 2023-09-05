@@ -5,21 +5,20 @@
 - ***Cyril DEBAY***
 - ***Alexandre MARTEL***
 
-# Sprint 3
+# Sprint 4
 
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-Amélioration de l'aspect des mini-jeux Pierre/Feuille/Ciseaux et du Dé avec une partie graphique pour le combat
-Création du menu d'accueil et écran de fin
-Implementation du menu d'accueil à la démo
-Finalisation de l'inventaire
+Création des items dans des fichiers CSV
+Lecture des fichiers CSV
+Ajout de l'inventaire avant un combat
+Fixs
 
 ### Ce que nous allons faire durant le prochain sprint
-Système visuel du combat
-Création des items dans un fichier CSV
-Ajout de l'inventaire avant un combat
-Fix sur les mini-jeux
+Finalisation du visuel de la partie combat
+Création d'ennemis destinés à évoluer à chaque combat réalisé et gagné
+Mise en place des combats qui s'enchainent
 
 # Mémo
 N’oubliez pas d’ajouter une photo du radiateur d’information au moment de la rétrospective.
