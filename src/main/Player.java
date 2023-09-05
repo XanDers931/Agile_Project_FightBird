@@ -60,6 +60,10 @@ public class Player {
         return ammo;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
     public void increaseHp(int multiplier){
         this.health_point += INCREASE_MANA_HP * multiplier;
     }
