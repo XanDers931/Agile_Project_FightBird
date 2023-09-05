@@ -5,11 +5,11 @@ import java.util.Random;
 public class Magic extends Item{
     private static final int CRIT_MULTIPLIER = 2;
     private static final int MISSED_HIT_DAMAGE = 0;
-    private static final int USE_MANA = 10;
-
-
-    public Magic(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity) {
+    private int use_mana;
+    
+    public Magic(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int use_mana) {
         super(nom, type, damage, critical_rate, accuracy, rarity);
+        this.use_mana = use_mana;
     }
 
     private boolean hitSuccess(){
@@ -32,9 +32,5 @@ public class Magic extends Item{
             }
             return damage_value;
         }
-    }
-
-    public int usedMana(){
-        if(this.hitSuccess) return USE_MANA;
     }
 }

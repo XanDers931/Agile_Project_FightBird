@@ -3,7 +3,7 @@ package main;
 public class Dice {
     public Dice(){}
 
-    public boolean fight(){
+    public static boolean fight(){
         int playerRoll, computerRoll;
         playerRoll = (int)(Math.random()*6)+1;
         System.out.println("You start rolling the dice");

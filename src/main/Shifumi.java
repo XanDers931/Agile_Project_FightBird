@@ -1,37 +1,38 @@
 package main;
 
 public class Shifumi {
-    private final Special actualPick;
+    private final String actualPick;
 
     public Shifumi(Special pick){
-        this.actualPick = pick;
+        this.actualPick = pick.getName();
     }
 
-    private Special randompick(){
+    private String randompick(){
         int randomInt;
-        Special computerPick;
+        String computerPick;
 
         randomInt =  (int)(Math.random()*3);
         if (randomInt==0){
-            computerPick = Special(Rock);
+            computerPick = "Rock";
         }
         else if(randomInt==1){
-            computerPick = Special(Paper);
+            computerPick = "Paper";
         }
-        else if(randomInt==2){
-            computerPick = Special(Scissor);
+        else{
+            computerPick = "Scissors";
         }
+        return computerPick;
     }
 
     public boolean fight(){
-        Special computerPick = randompick();
-        if(computerPick = Rock && actualPick = Paper){
+        String computerPick = randompick();
+        if(computerPick.equals("Rock") && actualPick.equals("Paper")){
             return true;
         }
-        else if(computerPick = Paper && actualPick = Scissor){
+        else if(computerPick.equals("Paper") && actualPick.equals("Scissors")){
             return true;
         }
-        else if(computerPick = Scissor && actualPick = Rock){
+        else if(computerPick.equals("Scissors") && actualPick.equals("Rock")){
             return true;
         }
         else{

@@ -5,11 +5,11 @@ import java.util.Random;
 public class Range extends Item{
     private static final int CRIT_MULTIPLIER = 2;
     private static final int MISSED_HIT_DAMAGE = 0;
-    private static final int USE_AMMO = 1;
+    private int use_ammo;
 
-
-    public Range(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity) {
+    public Range(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int use_ammo) {
         super(nom, type, damage, critical_rate, accuracy, rarity);
+        this.use_ammo = use_ammo;
     }
 
     private boolean hitSuccess(){
@@ -32,9 +32,5 @@ public class Range extends Item{
             }
             return damage_value;
         }
-    }
-
-    public int usedAmmo(){
-        if(this.hitSuccess) return USE_AMMO;
     }
 }
