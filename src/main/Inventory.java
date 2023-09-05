@@ -111,7 +111,8 @@ public class Inventory {
             if (progress == 4){
                 finish = true;
                 inventory = (ArrayList<Item>) cloneInventory.clone();
-            }            
+            }          
+            Visuals.clear();  
         }
         
         System.out.println("End of selection phase. Battle starting soon. (Press Enter)");

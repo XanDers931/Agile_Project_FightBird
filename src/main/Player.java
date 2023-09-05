@@ -33,6 +33,14 @@ public class Player {
 
     public Player() {
         this(BASE_HEALTH, BASE_ATTACK, BASE_MANA, BASE_USERNAME, BASE_AMMO, BASE_INVENTORY);
+        Melee melee = new Melee("batte", Type.MELEE, 10, 15, 95, 2);
+        Magic magic = new Magic("magie", Type.MAGIC, 5, 10, 95, 2, 12);
+        Range range = new Range("bateau", Type.RANGE, 80, 15, 55, 2,1);
+        Special dice = new Special("Scissors", Type.SPECIAL, 20, 0, 0, 0, TypeGame.SHIFUMI);
+        this.inventory.addItem(melee);
+        this.inventory.addItem(magic);
+        this.inventory.addItem(range);
+        this.inventory.addItem(dice);
     }
 
     @Override

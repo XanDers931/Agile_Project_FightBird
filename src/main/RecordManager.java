@@ -21,11 +21,9 @@ public class RecordManager {
         }
     }
 
-    private static int getBestScore(){
+    public static int getBestScore(){
         int res = 0;
-        try (Scanner sc = new Scanner(new File(RECORD_PATH)).useDelimiter(" ")) {
-            sc.next();
-            sc.next();
+        try (Scanner sc = new Scanner(new File(RECORD_PATH))) {
             res = Integer.parseInt(sc.next());
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -10,12 +10,10 @@ public class Main {
 
     private static void fight(Player player, Ennemy ennemy){
         Fight fight = new Fight(player, ennemy);
-        Melee melee = new Melee("batte", Type.MELEE, 10, 15, 95, 2);
-        Magic magic = new Magic("magie", Type.MAGIC, 5, 10, 95, 2, 12);
-        Range range = new Range("bateau", Type.RANGE, 80, 15, 55, 2,1);
-        Special dice = new Special("Scissors", Type.SPECIAL, 20, 0, 0, 0, TypeGame.SHIFUMI);
+        
         Scanner sc = new Scanner(System.in);
         String select = "";
+        player.getInventory().openInventory();
         while(!fight.isFinished()){
             Visuals.clear();
             Visuals.printFight();
@@ -23,20 +21,20 @@ public class Main {
             System.out.println(player);
             System.out.println(" \n Ennemy status:");
             System.out.println(ennemy);
-            System.out.println("Select weapon : 1 melee 2 magic 3 range 4 special");
+            System.out.println("Select weapon : 1 melee 2 range 3 magic 4 special");
             select = sc.nextLine();
             switch (select) {
                 case "1":
-                    fight.fight(melee);
+                    fight.fight(player.getInventory().getChoice()[0]);
                     break;
                 case "2":
-                    fight.fight(magic);
+                    fight.fight(player.getInventory().getChoice()[1]);
                     break;
                 case "3":
-                    fight.fight(range);
+                    fight.fight(player.getInventory().getChoice()[2]);
                     break;
                 case "4":
-                    fight.fight(dice);
+                    fight.fight(player.getInventory().getChoice()[3]);
                     break;
                 default:
                     break;
@@ -52,13 +50,21 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String select = "";
         select = sc.nextLine();
+        int level = 0;
         switch (select) {
             case "1":
-                fight(user, ennemy);
-                System.out.flush();
+                while(user.getHealth_point()>0){
+                    fight(user, ennemy);
+                    System.out.flush();
+                    if(ennemy.getPv()<=0){
+                        level+=1;
+                    }
+                }
+                RecordManager.changeScore("WASSSSA", level);
                     break;
             case "2":
-                System.out.println("WIP");
+                System.out.println("Le meilleur score c'est "+RecordManager.getBestScore());
+                Visuals.wait(sc);
                 break;
             case "3":
                 rules();
