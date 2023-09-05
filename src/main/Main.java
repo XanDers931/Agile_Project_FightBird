@@ -8,21 +8,29 @@ public class Main {
         Ennemy ennemy = new Ennemy();
         System.out.println(" \nVotre statut :");
             System.out.println(user);
-        while(user.getHealth_point()>0 && ennemy.getPv()>0){
-            user.takeDamage(ennemy.getAttack());
-            ennemy.takeDamage(user.getAttack_value());
-            System.out.println("\nVous avez mis "+user.getAttack_value()+" dégats");
-            System.out.println("\nVous avez subis " +ennemy.getAttack()+" dégats");
-            System.out.println(" \nVotre statut :");
-            System.out.println(user);
-            System.out.println(" \nstatut Ennemy:");
-            System.out.println(ennemy);
-            System.out.println("Votre attaque a augmenté de 1");
-            user.increaseAttack(1);
             Scanner sc = new Scanner(System.in);
-            System.out.println("pressez entrée");
-            sc.nextLine();
-
+        Fight fight = new Fight(user, ennemy);
+        Melee melee = new Melee("batte", Type.MELEE, 10, 15, 95, 2);
+        Magic magic = new Magic("magie", Type.MAGIC, 5, 10, 95, 2, 12);
+        Range range = new Range("bateau", Type.RANGE, 80, 15, 55, 2,3);
+        String select = "";
+        while(!fight.isFinished()){
+            System.out.println("Select weapon : 1 melee 2 magic 3 range");
+            select = sc.nextLine();
+            switch (select) {
+                case "1":
+                    fight.fight(melee);
+                    break;
+                case "2":
+                    fight.fight(magic);
+                    break;
+                case "3":
+                    fight.fight(range);
+                    break;
+            
+                default:
+                    break;
+            }
             System.out.flush();
         }
     }

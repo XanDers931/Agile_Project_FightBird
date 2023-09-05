@@ -3,15 +3,12 @@ package main;
 import java.util.Random;
 
 public class Range extends Item{
-    private int crit_multipler;
-    private int missed_hit_damage;
+    private static final int CRIT_MULTIPLIER = 2;
+    private static final int MISSED_HIT_DAMAGE = 0;
     private int use_ammo;
 
-    public Range(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int crit_multipler,
-            int missed_hit_damage, int use_ammo) {
+    public Range(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int use_ammo) {
         super(nom, type, damage, critical_rate, accuracy, rarity);
-        this.crit_multipler = crit_multipler;
-        this.missed_hit_damage = missed_hit_damage;
         this.use_ammo = use_ammo;
     }
 
@@ -28,10 +25,10 @@ public class Range extends Item{
     public int damageTotal(int attack_multiplier){
         int damage_value = this.damage * attack_multiplier;
         if (!this.hitSuccess()){
-            return missed_hit_damage;
+            return MISSED_HIT_DAMAGE;
         }else{
             if(this.hitCritical()){
-                damage_value *= crit_multipler;
+                damage_value *= CRIT_MULTIPLIER;
             }
             return damage_value;
         }
