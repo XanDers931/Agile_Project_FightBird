@@ -7,6 +7,10 @@ public class Range extends Item{
     private static final int MISSED_HIT_DAMAGE = 0;
     private int use_ammo;
 
+    public int getUse_ammo() {
+        return use_ammo;
+    }
+
     public Range(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int use_ammo) {
         super(nom, type, damage, critical_rate, accuracy, rarity);
         this.use_ammo = use_ammo;

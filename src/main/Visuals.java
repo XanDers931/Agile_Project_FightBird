@@ -13,7 +13,7 @@ public class Visuals {
         String res = "";
         try (Scanner sc = new Scanner(new File(filePath))) {
             while(sc.hasNextLine()){
-                res += sc.nextLine();
+                res += sc.nextLine()+ "\n";
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -21,15 +21,15 @@ public class Visuals {
         return res;
     }
 
-    public void printMenu(){
+    public static void printMenu(){
         System.out.println(printTextFile(MENU_PATH));
     }
 
-    public void printRules(){
+    public static void printRules(){
         System.out.println(printTextFile(RULES_PATH));
     }
 
-    public void printFight(){
+    public static void printFight(){
         System.out.println(printTextFile(HUD_PATH));
     }
 }

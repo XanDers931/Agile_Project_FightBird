@@ -7,6 +7,10 @@ public class Magic extends Item{
     private static final int MISSED_HIT_DAMAGE = 0;
     private int use_mana;
     
+    public int getUse_mana() {
+        return use_mana;
+    }
+
     public Magic(String nom, Type type, int damage, int critical_rate, int accuracy, int rarity, int use_mana) {
         super(nom, type, damage, critical_rate, accuracy, rarity);
         this.use_mana = use_mana;
