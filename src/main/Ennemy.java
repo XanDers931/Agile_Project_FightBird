@@ -62,7 +62,7 @@ public class Ennemy {
 
     @Override
     public String toString() {
-        return "Ennemy [name=" + name + ", pv=" + pv + ", PVMAX=" + PVMAX + ", attack=" + attack + "]";
+        return "name=" + name + "\n pv=" + pv + "\n PVMAX=" + PVMAX + " \n attack=" + attack ;
     }
 
     /*

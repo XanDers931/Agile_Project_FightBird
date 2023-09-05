@@ -20,6 +20,7 @@ public class Player {
     private int mana_point;
     private int ammo;
     private Inventory inventory;
+    private int pv_max;
 
     
     public Player(int health_point, int attack_value, int mana_point, String username, int ammo, Inventory inventory) {
@@ -29,14 +30,15 @@ public class Player {
         this.username = username;
         this.ammo = ammo;
         this.inventory = inventory;
+        pv_max=health_point;
     }
 
     public Player() {
         this(BASE_HEALTH, BASE_ATTACK, BASE_MANA, BASE_USERNAME, BASE_AMMO, BASE_INVENTORY);
         Melee melee = new Melee("batte", Type.MELEE, 10, 15, 95, 2);
-        Magic magic = new Magic("magie", Type.MAGIC, 5, 10, 95, 2, 12);
-        Range range = new Range("bateau", Type.RANGE, 80, 15, 55, 2,1);
-        Special dice = new Special("Scissors", Type.SPECIAL, 20, 0, 0, 0, TypeGame.SHIFUMI);
+        Magic magic = new Magic("Batton Magique", Type.MAGIC, 1, 10, 15, 2, 12);
+        Range range = new Range("bateau à lancer", Type.RANGE, 20, 15, 55, 2,1);
+        Special dice = new Special("Paper",Type.SPECIAL,20,2,TypeGame.SHIFUMI);
         this.inventory.addItem(melee);
         this.inventory.addItem(magic);
         this.inventory.addItem(range);
@@ -45,7 +47,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return this.username + " : \nHealth : " + this.health_point + "\nAttack : " + this.attack_value + "\nMana : " + this.mana_point;
+        return this.username + " : \nHealth : " + this.health_point +"/"+this.pv_max+ "\nAttack : " + this.attack_value + "\nMana : " + this.mana_point+" \n Ammo: "+ this.ammo;
     }
 
     public String getUsername() {
@@ -73,7 +75,7 @@ public class Player {
     }
 
     public void increaseHp(int multiplier){
-        this.health_point += INCREASE_MANA_HP * multiplier;
+        this.pv_max += INCREASE_MANA_HP * multiplier;
     }
 
     public void increaseAttack(int multiplier){
@@ -108,4 +110,10 @@ public class Player {
             this.health_point-=damage;
         }
     }
+
+    public void heal(){
+        health_point=pv_max;
+    }
+
+    
 }

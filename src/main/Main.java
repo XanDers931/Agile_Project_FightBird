@@ -54,10 +54,35 @@ public class Main {
         switch (select) {
             case "1":
                 while(user.getHealth_point()>0){
+                    ennemy = new Ennemy(level);
                     fight(user, ennemy);
                     System.out.flush();
                     if(ennemy.getPv()<=0){
                         level+=1;
+                        int choice = level%5;
+                        switch (choice) {
+                            case 0:
+                                user.increaseHp(1);
+                                break;
+                            case 1:
+                                user.increaseAttack(1);
+                            break;
+                            case 2:
+                                user.increaseMana(1);
+                            break;
+                            case 3:
+                                user.increaseAmmo(1);
+                            break;
+                            case 4:
+                                user.increaseHp(1);
+                                user.increaseAttack(1);
+                                user.increaseMana(1);
+                                user.increaseAmmo(1);
+                            break;
+                            default:
+                            break;
+                        }
+                        
                     }
                 }
                 RecordManager.changeScore("WASSSSA", level);

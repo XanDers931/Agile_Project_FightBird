@@ -39,7 +39,7 @@ public class Fight {
         }
             int damage = usedItem.damageTotal(player.getAttack_value());
             ennemy.takeDamage(damage);
-            System.out.println(damage);
+            System.out.println("you hit "+ damage);
         }
     }
 

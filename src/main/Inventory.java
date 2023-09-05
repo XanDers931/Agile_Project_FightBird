@@ -39,7 +39,7 @@ public class Inventory {
         cloneInventory = (ArrayList<Item>) inventory.clone();
 
         while (!finish){
-
+        Visuals.clear(); 
             inventorySize = inventory.size();
             afficherChoix(curseur, itemSelection);
             
@@ -47,19 +47,19 @@ public class Inventory {
 
             read = sc.nextLine();
             
-            c = read.charAt(0);
+            // c = read.charAt(0);
 
-            if (c == 'q'){
+            if (read.equals("q")){
                 if (itemSelection != 0){
                   itemSelection = itemSelection - 1;  
                 }   
             }
-            if (c == 'd'){
+            if (read.equals("d")){
                 if (itemSelection <= inventorySize - 2){
                   itemSelection = itemSelection + 1;  
                 }   
             }
-            if (c == 'e'){
+            if (read.equals("e")){
                 if (progress == 0 && inventory.get(itemSelection).getType() == Type.MELEE){
                     choice[progress] = inventory.get(itemSelection);
                     moveCursorDown(curseur);
@@ -68,6 +68,7 @@ public class Inventory {
                     itemSelection = 0;    
                 } else if (progress == 0) {
                     System.out.println("Bad category of Item : you need MELEE item in slot 1");
+                    Visuals.wait(sc);
                 }
                 else if (progress == 1 && inventory.get(itemSelection).getType() == Type.RANGE){
                     choice[progress] = inventory.get(itemSelection);
@@ -78,6 +79,7 @@ public class Inventory {
                 }
                 else if (progress == 1) {
                     System.out.println("Bad category of Item : you need RANGE item in slot 2");
+                    Visuals.wait(sc);
                 }
                 else if (progress == 2 && inventory.get(itemSelection).getType() == Type.MAGIC){
                     choice[progress] = inventory.get(itemSelection);
@@ -88,6 +90,7 @@ public class Inventory {
                 }
                 else if (progress == 2) {
                     System.out.println("Bad category of Item : you need MAGIC item in slot 3");
+                    Visuals.wait(sc);
                 }
                 else if (progress == 3 && inventory.get(itemSelection).getType() == Type.SPECIAL){
                     choice[progress] = inventory.get(itemSelection);
@@ -98,10 +101,11 @@ public class Inventory {
                 }
                 else if (progress == 3) {
                     System.out.println("Bad category of Item : you need SPECIAL item in slot 4");
+                    Visuals.wait(sc);
                 }
                 
             }
-            if (c == 'a'){
+            if (read.equals("a")){
                 if (progress != 0){
                     choice[progress] = null;
                     moveCursorUp(curseur);
@@ -112,7 +116,8 @@ public class Inventory {
                 finish = true;
                 inventory = (ArrayList<Item>) cloneInventory.clone();
             }          
-            Visuals.clear();  
+             
+            // System.out.println("caca"); 
         }
         
         System.out.println("End of selection phase. Battle starting soon. (Press Enter)");

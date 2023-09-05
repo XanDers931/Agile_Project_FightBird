@@ -8,7 +8,7 @@ public class RecordManager {
     private static final String RECORD_PATH = "res/record.txt";
 
     private static void editBestScore(String name, int score){
-        String res = score + "point";
+        String res = score+"";
         try (PrintWriter pw = new PrintWriter(new File(RECORD_PATH))) {
             if(score > 2){
                 res += "s";
