@@ -1,0 +1,61 @@
+                                                                                                                                                             
+RRRRRRRRRRRRRRRRR                     lllllll                                      
+R::::::::::::::::R                    l:::::l                                      
+R::::::RRRRRR:::::R                   l:::::l                                      
+RR:::::R     R:::::R                  l:::::l                                      
+  R::::R     R:::::Ruuuuuu    uuuuuu   l::::l     eeeeeeeeeeee        ssssssssss   
+  R::::R     R:::::Ru::::u    u::::u   l::::l   ee::::::::::::ee    ss::::::::::s  
+  R::::RRRRRR:::::R u::::u    u::::u   l::::l  e::::::eeeee:::::eess:::::::::::::s 
+  R:::::::::::::RR  u::::u    u::::u   l::::l e::::::e     e:::::es::::::ssss:::::s
+  R::::RRRRRR:::::R u::::u    u::::u   l::::l e:::::::eeeee::::::e s:::::s  ssssss 
+  R::::R     R:::::Ru::::u    u::::u   l::::l e:::::::::::::::::e    s::::::s      
+  R::::R     R:::::Ru::::u    u::::u   l::::l e::::::eeeeeeeeeee        s::::::s   
+  R::::R     R:::::Ru:::::uuuu:::::u   l::::l e:::::::e           ssssss   s:::::s 
+RR:::::R     R:::::Ru:::::::::::::::uul::::::le::::::::e          s:::::ssss::::::s
+R::::::R     R:::::R u:::::::::::::::ul::::::l e::::::::eeeeeeee  s::::::::::::::s 
+R::::::R     R:::::R  uu::::::::uu:::ul::::::l  ee:::::::::::::e   s:::::::::::ss  
+RRRRRRRR     RRRRRRR    uuuuuuuu  uuuullllllll    eeeeeeeeeeeeee    sssssssssss  
+
+
+
+        "The first rule of Fight Bird is: you do not talk about Fight Bird..."
+
+        Fight Bird is a video-game which is a mix between Flappy Bird and a RPG/Fight Game, you have to go through pipes in order to progress,
+        but you will find yourself encountering enemy in between those pipes. With the help of the items you will have in your inventory and
+        your statistics, you will have to defeat your enemies and keep progressing by fighting even stronger opponents.
+
+        Base Player Stats : 
+            * base-health : 100 
+            * base-mana : 100
+            * base attack : 1
+            * base ammo : 3
+
+        Stats increase by level : 
+            * health : 5
+            * mana : 5
+            * attack : 1 (multiplicative)
+            * ammo : 2
+
+        Different weapons : 
+            * melee weapons : sword(wood, stone, iron, diamond, master, legendary) / pick pick(wood, stone, iron, diamond, master, legendary)
+            * range weapons : bow(bow, crossbow, gun, shotgun, ak47, AWP) / vehicule(bike, scooter, car, truck, BOAT, skateboard)
+            * special weapon : rock, papers, scissors, dice, flashbang, reverse
+            * magic : magic stick (stick, wand, scepter, Gandalf's big mystical staff, Tradition) / invocation(phoenix, dragon, eagle, dog, rat, worm)
+
+        Difficulty: 
+            * every 5 level a boss spawn and if defeated increase reward from fight and collecting treasure
+
+        Fight : 
+            * if health go to 0 : game over, record of the highest score
+            * if win (ennemy health = 0), regen all health, mana and ammunition.
+            * if win a boss fight :
+                - increase stat augment multiplier to +1;
+                - increase rarity item from chest
+
+        Environnement
+            * if hitting a pipe : game over
+            * chest random spawn with weapon on the actual rarity
+
+
+
+        0 : Exit to menu
