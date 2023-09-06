@@ -116,13 +116,13 @@ public class Player {
         ammo=ammo_max;
     }
 
-    public void scaleUp(){
+    public void scaleUp(int level){
         Scanner sc = new Scanner(System.in);
         boolean isFinished = false;
         String input;
         Visuals.clear();
 
-        System.out.println("Youhou you won the fight, you can now select a stats to augment !");
+        System.out.println("Youhou you reach the level"+ level +", you can now select a stats to augment !");
         System.out.println("Please choose a stat you want to up !");
         System.out.println("Input 1 to augment your Health point");
         System.out.println("Input 2 to augment your Attack damage multiplier");
