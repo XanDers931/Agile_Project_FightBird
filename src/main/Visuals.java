@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,6 +11,8 @@ public class Visuals {
     private static final String RULES_PATH = "res/Rules.txt";
     private static final String MENU_PATH = "res/fight_bird.txt";
     private static final String BOSS_PATH = "res/boss_hud.txt";
+    private static final String SPEECH_PATH = "res/dialogue.txt";
+
     private static String printTextFile(String filePath){
         String res = "";
         try (Scanner sc = new Scanner(new File(filePath))) {
@@ -44,5 +48,18 @@ public class Visuals {
         String select;
         System.out.println("Press Enter");
         select = scanner.nextLine();
+    }
+
+    public static void randomSpeech(){
+        ArrayList<String> speeches = new ArrayList<String>();
+        try (Scanner sc = new Scanner(new File(SPEECH_PATH))) {
+            while(sc.hasNextLine()){
+                speeches.add(sc.nextLine());
+            }
+            Collections.shuffle(speeches);
+            System.out.println(speeches.get(0));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
