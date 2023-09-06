@@ -1,5 +1,5 @@
 package main;
 
 public enum TypeGame {
-    SHIFUMI,DICE;
+    SHIFUMI,DICE,FLASHBANG,REVERSE;
 }

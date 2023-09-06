@@ -21,6 +21,19 @@ Création des items dans un fichier CSV
 Ajout de l'inventaire avant un combat
 Fix sur les mini-jeux
 
+### PDCA
+
+Problème : 
+Soucis sur les mini-jeux
+
+Indicateur :
+Concernant les dés, deux lancés avaient lieu à la place d'un seul et un manque d'équilibrage 
+
+Options :
+- Corriger le système de combat qui était la source du double lancé (nous l'avons découvert une fois une partie démo de réalisée)
+- Lors des combats tests, la prise de risque était élevée (les chances de perdre le combat alors que l'on utilisait une capacité spéciale étaient trop élevées)
+- Changement des dégâts (cela reste tout de même des dégâts importants)
+
 # Mémo
 N’oubliez pas d’ajouter une photo du radiateur d’information au moment de la rétrospective.
 
