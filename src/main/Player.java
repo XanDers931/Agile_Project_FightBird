@@ -132,22 +132,22 @@ public class Player {
             input = sc.nextLine();
 
             if(input.equals("1")){
-                this.health_point++;
+                increaseHp(1);;
                 System.out.println("You increased your health point");
                 isFinished = true;
             }
             else if(input.equals("2")){
-                this.attack_value++;
+                increaseAttack(1);
                 System.out.println("You increased your attack damage");
                 isFinished = true;
             }
             else if(input.equals("3")){
-                this.ammo++;
+                increaseAmmo(1);
                 System.out.println("You increased your total ammunition");
                 isFinished = true;
             }
             else if(input.equals("4")){
-                this.mana_point++;
+                increaseMana(1);
                 System.out.println("You increased your total mana");
                 isFinished = true;
             }
