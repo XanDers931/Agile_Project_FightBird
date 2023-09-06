@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class RecordManager {
     private static final String RECORD_PATH = "res/record.txt";
 
-    private static void editBestScore(String name, int score){
+    private static void editBestScore(int score){
         String res = score+"";
         try (PrintWriter pw = new PrintWriter(new File(RECORD_PATH))) {
             if(score > 2){
@@ -31,9 +31,9 @@ public class RecordManager {
         return res;
     }
 
-    public static void changeScore(String name, int score){
+    public static void changeScore(int score){
         if(score > RecordManager.getBestScore()){
-            RecordManager.editBestScore(name, score);
+            RecordManager.editBestScore(score);
         }
     }
 }

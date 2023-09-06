@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 
 public class Ennemy {
     private String name;
@@ -62,7 +61,7 @@ public class Ennemy {
 
     @Override
     public String toString() {
-        return "name=" + name + "\n pv=" + pv + "\n PVMAX=" + PVMAX + " \n attack=" + attack ;
+        return "name=" + name + "\npv=" + pv + "\nPVMAX=" + PVMAX + " \nattack=" + attack ;
     }
 
     /*

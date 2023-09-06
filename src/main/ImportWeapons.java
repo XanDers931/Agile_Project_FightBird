@@ -3,7 +3,6 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -157,6 +156,7 @@ public class ImportWeapons {
         res.add(listMagic().get(0));
         res.add(listMelees().get(0));
         res.add(listRange().get(0));
+        res.add(listSpecial().get(0));
         return res;
     }
     
