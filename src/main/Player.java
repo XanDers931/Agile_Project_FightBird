@@ -143,7 +143,7 @@ public class Player {
             }
             else if(input.equals("3")){
                 increaseAmmo(1);
-                System.out.println("You increased your total ammunition");
+                System.out.println("You increased your total Ammunition");
                 isFinished = true;
             }
             else if(input.equals("4")){

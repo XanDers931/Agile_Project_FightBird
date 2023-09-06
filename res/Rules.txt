@@ -56,6 +56,8 @@ RRRRRRRR     RRRRRRR    uuuuuuuu  uuuullllllll    eeeeeeeeeeeeee    sssssssssss
             * if hitting a pipe : game over
             * chest random spawn with weapon on the actual rarity
 
-
+        Inventory
+            * Before starting a fight you will need to choose 4 item in your bag to fight
+            * You can only use one weapon from each category of item
 
         0 : Exit to menu
