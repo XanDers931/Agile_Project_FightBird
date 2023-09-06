@@ -74,6 +74,6 @@ public class Visuals {
     }
     
     public static void openChest(){
-        System.out.println(printTextFile(MENU_PATH));
+        System.out.println(printTextFile(CHEST_ANIM));
     }
 }

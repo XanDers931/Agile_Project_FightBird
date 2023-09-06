@@ -68,6 +68,7 @@ public class Main {
             switch (select) {
                 case "1":
                     while(user.getHealth_point()>0){
+                        Visuals.clear();
                         map = new Map();
                         if(map.flappy(rarity,user)){
 
@@ -84,13 +85,14 @@ public class Main {
                                 level+=1;
                                 user.scaleUp();
                                 user.heal();
-                                Visuals.wait(sc);
                                 if(level%5==0){
                                     if(rarity<5){
                                         rarity++;
                                     }
                                     System.out.println(ImportWeapons.dropSpecial(user));
+                                    Visuals.wait(sc);
                                 }
+                                Visuals.clear();
                             }
                         }
                         else{

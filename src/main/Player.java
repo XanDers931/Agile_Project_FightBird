@@ -158,7 +158,7 @@ public class Player {
         }
 
         Visuals.wait(sc);
-        System.out.flush();
+        Visuals.clear();
     }
     
 }
