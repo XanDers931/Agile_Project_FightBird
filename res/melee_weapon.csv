@@ -1,13 +1,13 @@
 NOM;TYPE;DAMAGE;CRITICAL_RATE;ACCURACY;RARITY
-Wooden Sword;MELEE;2;40;90;0
-Stone Sword;MELEE;4;60;90;1
-Iron Sword;MELEE;7;65;90;2
+Wooden Sword;MELEE;3;40;90;0
+Stone Sword;MELEE;6;60;90;1
+Iron Sword;MELEE;9;65;90;2
 Diamond Sword;MELEE;15;70;90;3
 Master Sword;MELEE;22;80;90;4
 Legendary Sword;MELEE;40;60;90;5
-Wooden Pick Pick;MELEE;2;40;90;0
-Stone Pick Pick;MELEE;4;60;90;1
-Iron Pick Pick;MELEE;7;65;90;2
-Diamond Pick Pick;MELEE;15;70;90;3
-Master Pick Pick;MELEE;22;80;90;4
-Legendary Pick Pick;MELEE;40;60;90;5
+Wooden Pick Pick;MELEE;3;50;80;0
+Stone Pick Pick;MELEE;6;70;80;1
+Iron Pick Pick;MELEE;9;75;80;2
+Diamond Pick Pick;MELEE;15;80;80;3
+Master Pick Pick;MELEE;22;90;80;4
+Legendary Pick Pick;MELEE;40;75;80;5
