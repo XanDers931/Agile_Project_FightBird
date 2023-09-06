@@ -51,7 +51,10 @@ public class Inventory{
         Visuals.clear(); 
 
             inventorySize = inventory.size();
+
+            System.out.println(" Choose your weapon for the next battle (One Melee,one Range,one Magic and one special in this order)");
             afficherChoix(curseur, itemSelection);
+            itemDescription(inventory.get(itemSelection));
             
             System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
 
@@ -104,6 +107,13 @@ public class Inventory{
                     System.out.println("Bad category of Item : you need MAGIC item in slot 3");
                     Visuals.wait(sc);
                 }
+                else if(progress == 3 && !noSpecial()){
+                    System.out.println("No special Item for slot 4...");
+                    choice[progress] = null;
+                    moveCursorDown(curseur);
+                    progress = progress + 1;
+                    Visuals.wait(sc);
+                }
                 else if (progress == 3 && inventory.get(itemSelection).getType() == Type.SPECIAL){
                     choice[progress] = inventory.get(itemSelection);
                     moveCursorDown(curseur);
@@ -129,7 +139,7 @@ public class Inventory{
                 inventory = (ArrayList<Item>) cloneInventory.clone();
             }          
              
-            // System.out.println("caca"); 
+             
         }
         
         System.out.println("End of selection phase. Battle starting soon. (Press Enter)");
@@ -137,6 +147,18 @@ public class Inventory{
 
 
 
+    }
+
+    void itemDescription(Item item){
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.print("│   Name    : " + item.name); emptySpace(item.name);  System.out.println("│");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.print("│ Type      : " + item.type);  emptySpace((item.type.name())); System.out.println("│"); ;
+        System.out.print("│ Damage    : " + item.damage); emptySpace(String.valueOf(item.damage));  System.out.println("│");
+        System.out.print("│ Crit_rate : " + item.critical_rate); emptySpace(String.valueOf(item.critical_rate));  System.out.println("│");
+        System.out.print("│ Accuracy  : " + item.accuracy); emptySpace(String.valueOf(item.accuracy));  System.out.println("│");
+        System.out.print("│ Rarity    : " + item.rarity); emptySpace(String.valueOf(item.rarity));  System.out.println("│");
+        System.out.println("└─────────────────────────────────┘");
     }
 
     void moveCursorDown(boolean[] curseur){
@@ -186,6 +208,18 @@ public class Inventory{
         for (int i = 0; i < y; i++){
             System.out.print(" ");
         }
+    }
+
+    public boolean noSpecial(){
+        boolean res = false;
+        int i = 0;
+        while (!res && i < inventory.size()){
+            if (inventory.get(i).getType() == Type.SPECIAL){
+                res = true;
+            }
+            i = i + 1;
+        }
+        return res;
     }
 
     public void afficherChoix(boolean[] curseur,int tmp){
@@ -289,7 +323,6 @@ public class Inventory{
             inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
             inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
             inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
-            inventory.addItem(new Special("paper", Type.SPECIAL, 100, 1, TypeGame.SHIFUMI));
             inventory.openInventory();
     }
 

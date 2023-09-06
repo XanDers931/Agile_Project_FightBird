@@ -1,6 +1,6 @@
 package main;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Player {
@@ -8,9 +8,9 @@ public class Player {
     private static final int BASE_HEALTH = 100;
     private static final int BASE_ATTACK = 1;
     private static final int BASE_MANA = 100;
-    private static final String BASE_USERNAME = "Flap-Flap";
+    private static final String BASE_USERNAME = "Bird Wick";
     private static final int BASE_AMMO = 3;
-    private static final Inventory BASE_INVENTORY = new Inventory(new ArrayList<Item>());
+    private static final Inventory BASE_INVENTORY = new Inventory(ImportWeapons.baseItems());
 
     private static final int INCREASE_MANA_HP = 5;
     private static final int INCREASE_ATTACK_AMMO = 1;
@@ -22,6 +22,8 @@ public class Player {
     private int ammo;
     private Inventory inventory;
     private int pv_max;
+    private int mana_max;
+    private int ammo_max;
 
     
     public Player(int health_point, int attack_value, int mana_point, String username, int ammo, Inventory inventory) {
@@ -32,18 +34,13 @@ public class Player {
         this.ammo = ammo;
         this.inventory = inventory;
         pv_max=health_point;
+        mana_max=mana_point;
+        ammo_max=ammo;
     }
 
     public Player() {
         this(BASE_HEALTH, BASE_ATTACK, BASE_MANA, BASE_USERNAME, BASE_AMMO, BASE_INVENTORY);
-        Melee melee = new Melee("batte", Type.MELEE, 10, 15, 95, 2);
-        Magic magic = new Magic("Batton Magique", Type.MAGIC, 1, 10, 15, 2, 12);
-        Range range = new Range("bateau à lancer", Type.RANGE, 20, 15, 55, 2,1);
-        Special dice = new Special("Paper",Type.SPECIAL,20,2,TypeGame.SHIFUMI);
-        this.inventory.addItem(melee);
-        this.inventory.addItem(magic);
-        this.inventory.addItem(range);
-        this.inventory.addItem(dice);
+        
     }
 
     @Override
@@ -84,11 +81,11 @@ public class Player {
     }
 
     public void increaseMana(int multiplier){
-        this.mana_point += INCREASE_MANA_HP * multiplier;
+        this.mana_max += INCREASE_MANA_HP * multiplier;
     }
 
     public void increaseAmmo(int multiplier){
-        this.ammo += INCREASE_ATTACK_AMMO * multiplier;
+        this.ammo_max += INCREASE_ATTACK_AMMO * multiplier;
     }
 
     public void attackEnnemy(Ennemy otherEnnemy){
@@ -114,12 +111,15 @@ public class Player {
 
     public void heal(){
         health_point=pv_max;
+        mana_point=mana_max;
+        ammo=ammo_max;
     }
 
     public void scaleUp(){
         Scanner sc = new Scanner(System.in);
         boolean isFinished = false;
         String input;
+        Visuals.clear();
 
         System.out.println("Youhou you won the fight, you can now select a stats to augment !");
         System.out.println("Please choose a stat you want to up !");

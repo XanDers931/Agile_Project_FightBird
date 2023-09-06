@@ -10,13 +10,13 @@
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-Mise en place des classes : celle du joueur et des ennemis avec les caractéristiques, commencement de l'inventaire, attributs des items
-Création d'un premier système de combat entre le joueur et un ennemi sans items disponible.
+- Mise en place des classes : celle du joueur et des ennemis avec les caractéristiques, commencement de l'inventaire, attributs des items
+- Création d'un premier système de combat entre le joueur et un ennemi sans items disponible.
 
 ### Ce que nous allons faire durant le prochain sprint
-Ajouter les différents types d'items (Melee, Range, Magic et Special)
-Poursuite de l'inventaire
-Création des mini-jeux liés aux items
+- Ajouter les différents types d'items (Melee, Range, Magic et Special)
+- Poursuite de l'inventaire
+- Création des mini-jeux liés aux items
 
 ### PDCA
 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     private static void menu(){
+        Visuals.clear();
         Visuals.printMenu();
     }
 
@@ -51,56 +52,43 @@ public class Main {
         String select = "";
         select = sc.nextLine();
         int level = 0;
-        switch (select) {
-            case "1":
-                while(user.getHealth_point()>0){
-                    ennemy = new Ennemy(level);
-                    fight(user, ennemy);
-                    System.out.flush();
-                    if(ennemy.getPv()<=0){
-                        level+=1;
-                        int choice = level%5;
-                        switch (choice) {
-                            case 0:
-                                user.increaseHp(1);
-                                break;
-                            case 1:
-                                user.increaseAttack(1);
-                            break;
-                            case 2:
-                                user.increaseMana(1);
-                            break;
-                            case 3:
-                                user.increaseAmmo(1);
-                            break;
-                            case 4:
-                                user.increaseHp(1);
-                                user.increaseAttack(1);
-                                user.increaseMana(1);
-                                user.increaseAmmo(1);
-                            break;
-                            default:
-                            break;
+        boolean end = false;
+        while (!end) {
+            switch (select) {
+                case "1":
+                    while(user.getHealth_point()>0){
+                        ennemy = new Ennemy(level);
+                        fight(user, ennemy);
+                        System.out.flush();
+                        if(ennemy.getPv()<=0){
+                            Visuals.clear();
+                            level+=1;
+                            user.scaleUp();
+                            user.heal();
+                            System.out.println(ImportWeapons.drop(1, user)); 
+                            System.out.println(ImportWeapons.dropSpecial(user));
+                            Visuals.wait(sc);
                         }
-                        
                     }
-                }
-                RecordManager.changeScore("WASSSSA", level);
+                    RecordManager.changeScore(level);
+                    end =true;
                     break;
-            case "2":
-                System.out.println("Le meilleur score c'est "+RecordManager.getBestScore());
-                Visuals.wait(sc);
-                break;
-            case "3":
-                rules();
-                break;
-            case "0":
-                
-                break;
-            default:
-                break;
-            }
-        Visuals.clear();
+                case "2":
+                    System.out.println("Le meilleur score c'est "+RecordManager.getBestScore());
+                    Visuals.wait(sc);
+                    break;
+                case "3":
+                    rules();
+                    break;
+                case "0":
+                    end =true;
+                    break;
+                default:
+                    break;
+                }
+            Visuals.clear();
+            
+        }
         
     }
 

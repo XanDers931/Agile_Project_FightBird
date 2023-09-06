@@ -22,7 +22,7 @@
 ### weapons : 
 * melee weapons : sword(wood, stone, iron, diamond, master, legendary) / pick pick(wood, stone, iron, diamond, master, legendary)
 * range weapons : bow(bow, crossbow, gun, shotgun, ak47, AWP) / vehicule(bike, scooter, car, truck, BOAT, skateboard)
-* special weapon : rock, papers, scissors, dice, flashbang, reverse
+* special weapon : rock, papers, scissors, dice, Uno reverse
 * magic : magic stick (stick, wand, scepter, Gandalf's big mystical staff, Tradition) / invocation(phoenix, dragon, eagle, dog, rat, worm)
 
 ### damage :

@@ -3,6 +3,7 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ImportWeapons {
@@ -120,10 +121,60 @@ public class ImportWeapons {
         return list;
     }
 
+    public static Item drop(int rarity, Player player){
+        ArrayList<Item> listItem = new ArrayList<Item>();
+        listItem.addAll(listMagic());
+        listItem.addAll(listMelees());
+        listItem.addAll(listRange());
+
+        Collections.shuffle(listItem);
+        int size = listItem.size();
+        Item item = listItem.get(0);
+        int i = 1;
+
+        while((i<size && item.getRarity() != rarity) || player.getInventory().getInventory().contains(item)){
+            item = listItem.get(i);
+            i++;
+        }
+        if(i != size){
+            player.getInventory().addItem(item);
+            return item;
+        }
+        return null;
+    }
+
+    public static Item dropSpecial(Player player){
+        ArrayList<Item> listSpe = listSpecial();
+        Collections.shuffle(listSpe);
+        Item item = listSpe.get(0);
+        player.getInventory().addItem(item);
+        return item;
+    }
+
+    public static ArrayList<Item> baseItems(){
+        ArrayList<Item> res = new ArrayList<Item>();
+        res.add(listMagic().get(0));
+        res.add(listMelees().get(0));
+        res.add(listRange().get(0));
+        res.add(listSpecial().get(0));
+        return res;
+    }
+    
+
     public static void main(String[] args) {
         System.out.println(listMelees());
         System.out.println(listMagic());
         System.out.println(listRange());
         System.out.println(listSpecial());
+
+        Player player = new Player();
+        System.out.println(player);
+        Item d = ImportWeapons.drop(1, player);
+        System.out.println(d);
+        System.out.println(player.getInventory().getInventory());
+        Item dd = ImportWeapons.dropSpecial(player);
+        System.out.println(dd);
+        System.out.println(player.getInventory().getInventory());
+        System.out.println(baseItems());
     }
 }
