@@ -97,7 +97,7 @@ public class Player {
     }
 
     public void decreaseAmmo(int decreaseAmmo){
-        this.mana_point -= decreaseAmmo;
+        this.ammo -= decreaseAmmo;
     }
 
     public void takeDamage(int damage){

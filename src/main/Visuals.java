@@ -12,6 +12,7 @@ public class Visuals {
     private static final String MENU_PATH = "res/fight_bird.txt";
     private static final String BOSS_PATH = "res/boss_hud.txt";
     private static final String SPEECH_PATH = "res/dialogue.txt";
+    private static final String GAMEOVER_PATH = "res/GameOver.txt";
 
     private static String printTextFile(String filePath){
         String res = "";
@@ -39,6 +40,10 @@ public class Visuals {
 
     public static void printBoss(){
         System.out.println(printTextFile(BOSS_PATH));
+    }
+
+    public static void printGameOver(){
+        System.out.println(printTextFile(GAMEOVER_PATH));
     }
     public static void clear(){
         System.out.print("\033[H\033[2J");
