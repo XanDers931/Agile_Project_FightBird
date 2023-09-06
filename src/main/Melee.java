@@ -21,7 +21,7 @@ public class Melee extends Item{
         return rand.nextInt(100) < this.critical_rate;
     }
 
-    public int damageTotal(int attack_multiplier){
+    public int damageTotal(int attack_multiplier, Ennemy ennemy){
         int damage_value = this.damage * attack_multiplier;
         if (!this.hitSucess()){
             return MISSED_HIT_DAMAGE;

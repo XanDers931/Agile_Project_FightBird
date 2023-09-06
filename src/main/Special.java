@@ -10,13 +10,20 @@ public class Special extends Item{
     }
 
     @Override
-    public int damageTotal(int attack_multiplier) {
+    public int damageTotal(int attack_multiplier, Ennemy ennemy) {
         if (this.TYPE_GAME == TypeGame.DICE){
             if(Dice.fight()) return attack_multiplier * SPECIAL_MULTIPLIER;
         }else if (this.TYPE_GAME == TypeGame.SHIFUMI){
             Shifumi shifumi = new Shifumi(this);
             if(shifumi.fight()){
                 return attack_multiplier * SPECIAL_MULTIPLIER;
+            }
+        }else if (this.TYPE_GAME == TypeGame.REVERSE){
+            UnoReverse unoreverse = new UnoReverse();
+            if(unoreverse.fight()){
+                return ennemy.getAttack();
+            }else{
+                return -(ennemy.getAttack());
             }
         }
         return NO_DAMAGE;

@@ -21,7 +21,7 @@ public abstract class Item implements Comparable<Item>{
         return this.name;
     }
 
-    public abstract int damageTotal(int attack_multiplier);
+    public abstract int damageTotal(int attack_multiplier, Ennemy ennemy);
 
     public String getName() {
         return name;
