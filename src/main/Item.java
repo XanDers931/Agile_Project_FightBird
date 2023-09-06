@@ -1,6 +1,6 @@
 package main;
 
-public abstract class Item {
+public abstract class Item implements Comparable<Item>{
     String name;
     Type type;
     int damage;
@@ -45,5 +45,9 @@ public abstract class Item {
 
     public int getRarity() {
         return rarity;
+    }
+
+    public int compareTo(Item item){
+        return this.type.compareTo(item.type);
     }
 }

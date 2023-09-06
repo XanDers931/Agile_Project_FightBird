@@ -1,10 +1,12 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class Inventory {
+public class Inventory{
     private ArrayList<Item> inventory;
     private ArrayList<Item> cloneInventory;
 
@@ -41,6 +43,8 @@ public class Inventory {
         int inventorySize = inventory.size();
         boolean finish = false;
 
+        Collections.sort(inventory);
+
         cloneInventory = (ArrayList<Item>) inventory.clone();
 
         while (!finish){
@@ -51,11 +55,7 @@ public class Inventory {
             
             System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
 
-            //System.out.println(inventory.toString());
-
-            //cloneInventory.sort(null);
-
-            //System.out.println(cloneInventory.toString());
+            System.out.println(inventory.toString());
 
             read = sc.nextLine();
             
