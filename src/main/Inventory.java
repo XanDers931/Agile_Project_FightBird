@@ -209,10 +209,10 @@ public class Inventory{
         System.out.print("│ Accuracy  : " + item.accuracy); emptySpace(String.valueOf(item.accuracy));  System.out.println("│");
         System.out.print("│ Rarity    : " + item.rarity); emptySpace(String.valueOf(item.rarity));  System.out.println("│");
         if (item.getType() == Type.RANGE){
-        System.out.print("│ Ammo use  : " + ((Range) item).getUse_ammo()); emptySpace(String.valueOf(((Range) item).getUse_ammo()));
+        System.out.print("│ Ammo use  : " + ((Range) item).getUse_ammo()); emptySpace(String.valueOf(((Range) item).getUse_ammo())); System.out.println("│");
         }
         if (item.getType() == Type.MAGIC){
-        System.out.print("│ Ammo use  : " + ((Magic) item).getUse_mana()); emptySpace(String.valueOf(((Magic) item).getUse_mana()));
+        System.out.print("│ Ammo use  : " + ((Magic) item).getUse_mana()); emptySpace(String.valueOf(((Magic) item).getUse_mana())); System.out.println("│");
         }  
         System.out.println("└─────────────────────────────────┘");
     }
