@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
 
@@ -115,5 +116,48 @@ public class Player {
         health_point=pv_max;
     }
 
+    public void scaleUp(){
+        Scanner sc = new Scanner(System.in);
+        boolean isFinished = false;
+        String input;
+
+        System.out.println("Youhou you won the fight, you can now select a stats to augment !");
+        System.out.println("Please choose a stat you want to up !");
+        System.out.println("Input 1 to augment your Health point");
+        System.out.println("Input 2 to augment your Attack damage multiplier");
+        System.out.println("Input 3 to augment your ammunition");
+        System.out.println("Input 4 to augment your Mana");
+
+        while(!isFinished){
+            input = sc.nextLine();
+
+            if(input.equals("1")){
+                this.health_point++;
+                System.out.println("You increased your health point");
+                isFinished = true;
+            }
+            else if(input.equals("2")){
+                this.attack_value++;
+                System.out.println("You increased your attack damage");
+                isFinished = true;
+            }
+            else if(input.equals("3")){
+                this.ammo++;
+                System.out.println("You increased your total ammunition");
+                isFinished = true;
+            }
+            else if(input.equals("4")){
+                this.mana_point++;
+                System.out.println("You increased your total mana");
+                isFinished = true;
+            }
+            else{
+                System.out.println("Please select a valid answer (1,2,3,4)");
+            }
+        }
+
+        Visuals.wait(sc);
+        System.out.flush();
+    }
     
 }
