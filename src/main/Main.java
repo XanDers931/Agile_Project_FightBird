@@ -55,12 +55,12 @@ public class Main {
         Ennemy ennemy = new Ennemy();
         Scanner sc = new Scanner(System.in);
         String select = "";
-        int level = 1;
         boolean end = false;
-        int rarity = 1;
         Map map;
         while (!end) {
             user = new Player();
+            int rarity = 1;
+            int level = 1;
             ennemy = new Ennemy();
             menu();
             System.out.println(" Your Choice : ");

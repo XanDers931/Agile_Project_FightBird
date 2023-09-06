@@ -61,7 +61,7 @@ public class Ennemy {
 
     @Override
     public String toString() {
-        return "name=" + name + "\npv=" + pv + "/" + PVMAX + "\nattack=" + attack ;
+        return "Name :" + name + "\npv : " + pv + "/" + PVMAX + "\nattack : " + attack ;
     }
 
     /*
