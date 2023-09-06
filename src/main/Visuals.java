@@ -13,6 +13,7 @@ public class Visuals {
     private static final String BOSS_PATH = "res/boss_hud.txt";
     private static final String SPEECH_PATH = "res/dialogue.txt";
     private static final String GAMEOVER_PATH = "res/GameOver.txt";
+    private static final String CHEST_ANIM = "res/coffre.txt";
 
     private static String printTextFile(String filePath){
         String res = "";
@@ -55,16 +56,24 @@ public class Visuals {
         select = scanner.nextLine();
     }
 
-    public static void randomSpeech(){
+    public static void randomSpeech(Ennemy ennemy){
         ArrayList<String> speeches = new ArrayList<String>();
         try (Scanner sc = new Scanner(new File(SPEECH_PATH))) {
             while(sc.hasNextLine()){
                 speeches.add(sc.nextLine());
             }
             Collections.shuffle(speeches);
+            Visuals.printFight();
+            System.out.print(ennemy.getName()+" : ");
             System.out.println(speeches.get(0));
+            Scanner sc2 = new Scanner(System.in);
+            Visuals.wait(sc2);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    
+    public static void openChest(){
+        System.out.println(printTextFile(MENU_PATH));
     }
 }

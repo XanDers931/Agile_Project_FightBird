@@ -9,12 +9,15 @@ public class Map {
     private final String BORDER = "\u2588";
     private final String BIRD = "\u2022";
     private final String MIDMAP = "\u2800";
+    private final String CHEST = "\u2655";
     private final int SIZE = 10;
     private int xBird;
     private int xBackBird;
     private int yBird;
     private int yBackBird;
     private int yEnd;
+    private int xChest;
+    private int yChest;
     private int[][] map;
 
     public Map(){
@@ -45,6 +48,11 @@ public class Map {
         this.map[0][yEntry]=0;
         this.map[SIZE-1][yExit]=0;
 
+        //Chest generation
+        xChest = (int)(Math.random()*(SIZE-2))+1;
+        yChest = (int)(Math.random()*(SIZE-2))+1;
+        this.map[xChest][yChest]=2;
+
         //Bird positionnement
         xBird = 1;
         yBird = yEntry;
@@ -62,6 +70,9 @@ public class Map {
                 }
                 else if(this.map[ligne][colonne]==-1){
                     System.out.print(BIRD);
+                }
+                else if(this.map[ligne][colonne]==2){
+                    System.out.print(CHEST);
                 }
             }
             System.out.println("");
@@ -124,12 +135,20 @@ public class Map {
         return false;
     }
 
-    public boolean flappy(){
+    public boolean flappy(int rarity, Player user){
         boolean isFinished = false;
+        Scanner sc = new Scanner(System.in);
         generateMap();
         while(!isFinished){
             afficherMap();
             movement();
+            if(checkChest()){
+                Visuals.clear();
+                Visuals.openChest();
+                System.out.println("Wow ! You find something :");
+                System.out.println(ImportWeapons.drop(rarity, user));
+                Visuals.wait(sc);
+            }
             if(checkPosWin()){
                 Visuals.clear();
                 return true;
@@ -144,8 +163,18 @@ public class Map {
         return false;
     }
 
+    public boolean checkChest(){
+        if(xChest==xBird&&yChest==yBird){
+            return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
+        Player player = new Player();
+
         Map map = new Map();
-        System.out.println(map.flappy());
+        System.out.println(map.flappy(2,player));
+        player.getInventory().openInventory();
     }
 }

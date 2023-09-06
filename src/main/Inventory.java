@@ -95,15 +95,21 @@ public class Inventory{
 
             inventorySize = typeInventory.size();
 
-            System.out.println(" Choose your weapon for the next battle (One Melee,one Range,one Magic and one special in this order)");
+            System.out.println("┌────────────────────────────────────────────────────────────────────────────────────────────┐");
+            System.out.println(" Choose your weapon for the next battle ");
+            System.out.println(" One Melee for slot 1, one Range for slot 2, one Magic for slot 3 and one special for slot 4");
             afficherChoix(curseur, itemSelection,typeInventory);
             if(typeInventory.size()!=0){
                 itemDescription(typeInventory.get(itemSelection));
             }
+            System.out.println("└────────────────────────────────────────────────────────────────────────────────────────────┘");
             
-            System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
-
-            System.out.println(" Current usable item : " + typeInventory.toString());
+            System.out.println("                                   Control :");
+            System.out.println("                            q and d to scroll weapon");
+            System.out.println("                                e to confirm");
+            System.out.println("                           a to cancel last action");
+            System.out.println();
+            System.out.println("          Current usable item for this type : " + typeInventory.toString());
 
             read = sc.nextLine();
 
@@ -181,7 +187,8 @@ public class Inventory{
             } 
 
             scroll = 0;
-            typeInventory.clear();  
+            typeInventory.clear();
+            
              
         }
         
@@ -364,7 +371,6 @@ public class Inventory{
 
     }
 
-    /*
     public static void main(String[] args) {
             Inventory inventory = new Inventory();
             inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
@@ -374,6 +380,5 @@ public class Inventory{
             inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
             inventory.openInventory();
     }
-    */
 
 }

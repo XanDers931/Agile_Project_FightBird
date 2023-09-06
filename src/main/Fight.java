@@ -50,6 +50,7 @@ public class Fight {
     }
 
     public void fight(Item usedItem){
+        Visuals.clear();
         this.playerAttack(usedItem);
         if(ennemy.getPv()>0){
             this.ennemyAttack();
