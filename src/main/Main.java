@@ -65,8 +65,11 @@ public class Main {
             menu();
             System.out.println(" Your Choice : ");
             select = sc.nextLine();
+            Visuals.clear();
             switch (select) {
                 case "1":
+                    Visuals.lore();
+                    Visuals.wait(sc);
                     while(user.getHealth_point()>0){
                         Visuals.clear();
                         map = new Map();

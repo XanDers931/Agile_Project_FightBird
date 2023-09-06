@@ -2,8 +2,6 @@ package main;
 
 import java.util.Scanner;
 
-import javax.print.attribute.Size2DSyntax;
-import javax.print.attribute.standard.Sides;
 
 public class Map {
     private final String BORDER = "\u2588";

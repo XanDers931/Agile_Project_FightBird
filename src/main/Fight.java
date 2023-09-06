@@ -18,11 +18,11 @@ public class Fight {
     public boolean canAttack(Item usedItem){
         if(usedItem.getType() == Type.MAGIC){
             Magic magicItem = (Magic) usedItem;
-            return player.getMana_point()> magicItem.getUse_mana();
+            return player.getMana_point()>= magicItem.getUse_mana();
         }
         if(usedItem.getType()== Type.RANGE){
             Range rangeItem = (Range) usedItem;
-            return player.getAmmo() > rangeItem.getUse_ammo();
+            return player.getAmmo() >= rangeItem.getUse_ammo();
         }
         return true;
     }
