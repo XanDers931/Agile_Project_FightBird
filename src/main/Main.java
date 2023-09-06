@@ -86,7 +86,7 @@ public class Main {
                             if(ennemy.getPv()<=0){
                                 Visuals.clear();
                                 level+=1;
-                                user.scaleUp();
+                                user.scaleUp(level);
                                 user.heal();
                                 if(level%5==0){
                                     if(rarity<5){
@@ -99,7 +99,7 @@ public class Main {
                             }
                         }
                         else{
-                            user.takeDamage(1000000);
+                            user.takeDamage(100000000);
                         }
                     }
                     RecordManager.changeScore(level);
