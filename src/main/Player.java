@@ -12,8 +12,9 @@ public class Player {
     private static final int BASE_AMMO = 3;
     private static final Inventory BASE_INVENTORY = new Inventory(ImportWeapons.baseItems());
 
-    private static final int INCREASE_MANA_HP = 5;
-    private static final int INCREASE_ATTACK_AMMO = 1;
+    private static final int INCREASE_MANA_HP = 20;
+    private static final int INCREASE_ATTACK = 1;
+    private static final int INCREASE_AMMO = 2;
 
     private String username;
     private int health_point;
@@ -77,7 +78,7 @@ public class Player {
     }
 
     public void increaseAttack(int multiplier){
-        this.attack_value += INCREASE_ATTACK_AMMO * multiplier;
+        this.attack_value += INCREASE_ATTACK * multiplier;
     }
 
     public void increaseMana(int multiplier){
@@ -85,7 +86,7 @@ public class Player {
     }
 
     public void increaseAmmo(int multiplier){
-        this.ammo_max += INCREASE_ATTACK_AMMO * multiplier;
+        this.ammo_max += INCREASE_AMMO * multiplier;
     }
 
     public void attackEnnemy(Ennemy otherEnnemy){
