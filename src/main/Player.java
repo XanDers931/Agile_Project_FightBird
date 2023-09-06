@@ -46,7 +46,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return this.username + " : \nHealth : " + this.health_point +"/"+this.pv_max+ "\nAttack : " + this.attack_value + "\nMana : " + this.mana_point+" \n Ammo: "+ this.ammo;
+        return this.username + " : \nHealth : " + this.health_point +"/"+this.pv_max+ "\nAttack : " + this.attack_value + "\nMana : " + this.mana_point+" \nAmmo: "+ this.ammo;
     }
 
     public String getUsername() {
