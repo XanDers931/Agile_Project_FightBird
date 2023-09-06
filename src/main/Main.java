@@ -17,7 +17,12 @@ public class Main {
         player.getInventory().openInventory();
         while(!fight.isFinished()){
             Visuals.clear();
-            Visuals.printFight();
+            if(ennemy.getClass() == Boss.class){
+                Visuals.printBoss();
+            }
+            else {
+                Visuals.printFight();
+            }
             System.out.println(" \n Player status :");
             System.out.println(player);
             System.out.println(" \n Ennemy status:");
@@ -46,18 +51,24 @@ public class Main {
     public static void main(String[] args) {
         Player user = new Player();
         Ennemy ennemy = new Ennemy();
-        menu();
-        System.out.println(" Votre Choix : ");
         Scanner sc = new Scanner(System.in);
         String select = "";
-        select = sc.nextLine();
         int level = 0;
         boolean end = false;
+        int rarity = 1;
         while (!end) {
+            menu();
+            System.out.println(" Votre Choix : ");
+            select = sc.nextLine();
             switch (select) {
                 case "1":
                     while(user.getHealth_point()>0){
-                        ennemy = new Ennemy(level);
+                        if (level%5 == 0) {
+                            ennemy = new Boss(level);
+                        } else {
+                            ennemy = new Ennemy(level);
+                            
+                        }
                         fight(user, ennemy);
                         System.out.flush();
                         if(ennemy.getPv()<=0){
@@ -65,9 +76,12 @@ public class Main {
                             level+=1;
                             user.scaleUp();
                             user.heal();
-                            System.out.println(ImportWeapons.drop(1, user)); 
-                            System.out.println(ImportWeapons.dropSpecial(user));
+                            System.out.println(ImportWeapons.drop(rarity, user)); 
                             Visuals.wait(sc);
+                            if(level%10==0){
+                                rarity++;
+                                System.out.println(ImportWeapons.dropSpecial(user));
+                            }
                         }
                     }
                     RecordManager.changeScore(level);
