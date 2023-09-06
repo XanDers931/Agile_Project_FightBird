@@ -8,7 +8,7 @@ public class Player {
     private static final int BASE_HEALTH = 100;
     private static final int BASE_ATTACK = 1;
     private static final int BASE_MANA = 100;
-    private static final String BASE_USERNAME = "Bird Wick";
+    private static final String BASE_USERNAME = "Flap-Flap";
     private static final int BASE_AMMO = 3;
     private static final Inventory BASE_INVENTORY = new Inventory(ImportWeapons.baseItems());
 

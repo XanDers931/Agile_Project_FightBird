@@ -24,10 +24,11 @@ public class Melee extends Item{
     public int damageTotal(int attack_multiplier, Ennemy ennemy){
         int damage_value = this.damage * attack_multiplier;
         if (!this.hitSucess()){
-            
+
             return MISSED_HIT_DAMAGE;
         }else{
             if(this.hitCritical()){
+                System.out.println("You make a crit");
                 damage_value *= CRIT_MULTIPLIER;
             }
             return damage_value;

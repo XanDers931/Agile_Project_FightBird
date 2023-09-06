@@ -14,7 +14,7 @@ public class Visuals {
     private static final String SPEECH_PATH = "res/dialogue.txt";
     private static final String GAMEOVER_PATH = "res/GameOver.txt";
     private static final String CHEST_ANIM = "res/coffre.txt";
-    private static final String LORE= "res/coffre.txt";
+    private static final String LORE= "res/Lore.txt";
 
     private static String printTextFile(String filePath){
         String res = "";
