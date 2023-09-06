@@ -99,6 +99,7 @@ public class Map {
             else if(input.equals("d")){
                 xBackBird = xBird;
                 xBird++;
+                yBackBird = yBird;
                 System.out.println("You go right");
                 isFinished = true;
             }
