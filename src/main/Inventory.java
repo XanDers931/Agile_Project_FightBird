@@ -107,7 +107,7 @@ public class Inventory{
             System.out.println("                                   Control :");
             System.out.println("                            q and d to scroll weapon");
             System.out.println("                                e to confirm");
-            System.out.println("                           a to cancel last action");
+            //System.out.println("                           a to cancel last action");
             System.out.println();
             System.out.println("          Current usable item for this type : " + typeInventory.toString());
 
@@ -174,6 +174,7 @@ public class Inventory{
                 }
                 
             }
+            /*
             if (read.equals("a")){
                 if (progress != 0){
                     choice[progress] = null;
@@ -181,6 +182,7 @@ public class Inventory{
                     progress = progress - 1;
                 } 
             }
+            */
             if (progress == 4){
                 finish = true;
                 inventory = (ArrayList<Item>) cloneInventory.clone();
