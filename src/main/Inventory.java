@@ -104,6 +104,13 @@ public class Inventory{
                     System.out.println("Bad category of Item : you need MAGIC item in slot 3");
                     Visuals.wait(sc);
                 }
+                else if(progress == 3 && !noSpecial()){
+                    System.out.println("No special Item for slot 4...");
+                    choice[progress] = null;
+                    moveCursorDown(curseur);
+                    progress = progress + 1;
+                    Visuals.wait(sc);
+                }
                 else if (progress == 3 && inventory.get(itemSelection).getType() == Type.SPECIAL){
                     choice[progress] = inventory.get(itemSelection);
                     moveCursorDown(curseur);
@@ -129,7 +136,7 @@ public class Inventory{
                 inventory = (ArrayList<Item>) cloneInventory.clone();
             }          
              
-            // System.out.println("caca"); 
+             
         }
         
         System.out.println("End of selection phase. Battle starting soon. (Press Enter)");
@@ -186,6 +193,18 @@ public class Inventory{
         for (int i = 0; i < y; i++){
             System.out.print(" ");
         }
+    }
+
+    public boolean noSpecial(){
+        boolean res = false;
+        int i = 0;
+        while (!res && i < inventory.size()){
+            if (inventory.get(i).getType() == Type.SPECIAL){
+                res = true;
+            }
+            i = i + 1;
+        }
+        return res;
     }
 
     public void afficherChoix(boolean[] curseur,int tmp){
@@ -282,6 +301,7 @@ public class Inventory{
 
     }
 
+    /*
     public static void main(String[] args) {
             Inventory inventory = new Inventory();
             inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
@@ -289,8 +309,8 @@ public class Inventory{
             inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
             inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
             inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
-            inventory.addItem(new Special("paper", Type.SPECIAL, 100, 1, TypeGame.SHIFUMI));
             inventory.openInventory();
     }
+    */
 
 }
