@@ -370,15 +370,4 @@ public class Inventory{
         System.out.println("└───┴────────────────────┘");        
 
     }
-
-    public static void main(String[] args) {
-            Inventory inventory = new Inventory();
-            inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
-            inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
-            inventory.addItem(new Range("bow fofofofo", Type.RANGE, 0, 0, 0, 0, 0));
-            inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
-            inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
-            inventory.openInventory();
-    }
-
 }
