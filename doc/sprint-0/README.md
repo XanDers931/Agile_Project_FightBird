@@ -10,8 +10,8 @@
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-Invention du concept, du genre,... Ainsi que les tâches à faire.
-Chois de changer le système de combat.
+- Invention du concept, du genre,... Ainsi que les tâches à faire.
+- Choix de changer le système de combat.
 
 ### Ce que nous allons faire durant le prochain sprint
 Commencer à coder. 

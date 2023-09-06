@@ -10,13 +10,13 @@
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-Système de drop d'items
-Scale up du joueur (le joueur choisi la stat à améliorer après un combat gagné)
+- Système de drop d'items
+- Scale up du joueur (le joueur choisi la stat à améliorer après un combat gagné)
 
 ### Ce que nous allons faire durant le prochain sprint
-Ajout du special "Uno Reverse"
-Début du système de déplacement entre les tuyaux
-Mise en place des boss
+- Ajout du special "Uno Reverse"
+- Début du système de déplacement entre les tuyaux
+- Mise en place des boss
 
 ### PDCA
 
