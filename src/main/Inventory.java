@@ -51,7 +51,10 @@ public class Inventory{
         Visuals.clear(); 
 
             inventorySize = inventory.size();
+
+            System.out.println(" Choose your weapon for the next battle (One Melee,one Range,one Magic and one special in this order)");
             afficherChoix(curseur, itemSelection);
+            itemDescription(inventory.get(itemSelection));
             
             System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
 
@@ -144,6 +147,18 @@ public class Inventory{
 
 
 
+    }
+
+    void itemDescription(Item item){
+        System.out.println("┌─────────────────────────────────┐");
+        System.out.print("│   Name    : " + item.name); emptySpace(item.name);  System.out.println("│");
+        System.out.println("├─────────────────────────────────┤");
+        System.out.print("│ Type      : " + item.type);  emptySpace((item.type.name())); System.out.println("│"); ;
+        System.out.print("│ Damage    : " + item.damage); emptySpace(String.valueOf(item.damage));  System.out.println("│");
+        System.out.print("│ Crit_rate : " + item.critical_rate); emptySpace(String.valueOf(item.critical_rate));  System.out.println("│");
+        System.out.print("│ Accuracy  : " + item.accuracy); emptySpace(String.valueOf(item.accuracy));  System.out.println("│");
+        System.out.print("│ Rarity    : " + item.rarity); emptySpace(String.valueOf(item.rarity));  System.out.println("│");
+        System.out.println("└─────────────────────────────────┘");
     }
 
     void moveCursorDown(boolean[] curseur){
@@ -301,7 +316,6 @@ public class Inventory{
 
     }
 
-    /*
     public static void main(String[] args) {
             Inventory inventory = new Inventory();
             inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
@@ -311,6 +325,5 @@ public class Inventory{
             inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
             inventory.openInventory();
     }
-    */
 
 }
