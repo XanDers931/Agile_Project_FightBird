@@ -12,7 +12,7 @@ public class Player {
     private static final int BASE_AMMO = 3;
     private static final Inventory BASE_INVENTORY = new Inventory(ImportWeapons.baseItems());
 
-    private static final int INCREASE_MANA_HP = 20;
+    private static final int INCREASE_MANA_HP = 30;
     private static final int INCREASE_ATTACK = 1;
     private static final int INCREASE_AMMO = 2;
 
