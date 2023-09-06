@@ -13,6 +13,7 @@ public class ImportWeapons {
     private static final String PATH_SPECIAL = "res/special_weapon.csv";
 
 
+
     private static Melee importMelee(String line){
         try (Scanner sc = new Scanner(line).useDelimiter(";")) {
             String name = sc.next();
@@ -126,13 +127,18 @@ public class ImportWeapons {
         listItem.addAll(listMagic());
         listItem.addAll(listMelees());
         listItem.addAll(listRange());
+        System.out.println(listItem.removeAll(player.getInventory().getInventory()));
+        
 
         Collections.shuffle(listItem);
         int size = listItem.size();
         Item item = listItem.get(0);
         int i = 1;
+        System.out.println(listItem);
+        System.out.println(player.getInventory().getInventory());
+        System.out.println();
 
-        while((i<size && item.getRarity() != rarity) || player.getInventory().getInventory().contains(item)){
+        while(i<size && item.getRarity() != rarity){
             item = listItem.get(i);
             i++;
         }
@@ -176,5 +182,17 @@ public class ImportWeapons {
         System.out.println(dd);
         System.out.println(player.getInventory().getInventory());
         System.out.println(baseItems());
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        ImportWeapons.drop(1, player);
+        System.out.println(player.getInventory().getInventory());
     }
 }
