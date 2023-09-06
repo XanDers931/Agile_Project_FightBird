@@ -127,16 +127,14 @@ public class ImportWeapons {
         listItem.addAll(listMagic());
         listItem.addAll(listMelees());
         listItem.addAll(listRange());
-        System.out.println(listItem.removeAll(player.getInventory().getInventory()));
+        listItem.removeAll(player.getInventory().getInventory());
         
 
         Collections.shuffle(listItem);
         int size = listItem.size();
         Item item = listItem.get(0);
         int i = 1;
-        System.out.println(listItem);
-        System.out.println(player.getInventory().getInventory());
-        System.out.println();
+
 
         while(i<size && item.getRarity() != rarity){
             item = listItem.get(i);
