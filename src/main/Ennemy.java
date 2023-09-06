@@ -25,7 +25,7 @@ public class Ennemy {
     public Ennemy(int score){
         this.name = names[(int) (Math.random()*NUMBEROFNAMES)];
         randomStat = (int) (Math.random()*(score+1));
-        this.pv = MINPVMAX + randomStat * (int) ((score/100)+1);
+        this.pv = MINPVMAX+(score*15) + (randomStat*2) * (int) ((score/100)+1);
         this.PVMAX = this.pv;
         this.attack = MINATTACK + (score - randomStat) * (int) ((score/100)+1); 
 
