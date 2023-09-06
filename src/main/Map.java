@@ -131,12 +131,15 @@ public class Map {
             afficherMap();
             movement();
             if(checkPosWin()){
+                Visuals.clear();
                 return true;
             }
             if(checkPosDeath()){
+                Visuals.clear();
                 return false;
             }
             birdPosition();
+            Visuals.clear();
         }
         return false;
     }

@@ -41,6 +41,7 @@ public class Main {
                     break;
                 case "4":
                     fight.fight(player.getInventory().getChoice()[3]);
+                    player.getInventory().getInventory().remove(player.getInventory().getChoice()[3]);
                     break;
                 default:
                     break;
@@ -56,6 +57,7 @@ public class Main {
         int level = 0;
         boolean end = false;
         int rarity = 1;
+        Map map;
         while (!end) {
             menu();
             System.out.println(" Votre Choix : ");
@@ -63,29 +65,38 @@ public class Main {
             switch (select) {
                 case "1":
                     while(user.getHealth_point()>0){
-                        if (level%5 == 0) {
-                            ennemy = new Boss(level);
-                        } else {
-                            ennemy = new Ennemy(level);
-                            
-                        }
-                        fight(user, ennemy);
-                        System.out.flush();
-                        if(ennemy.getPv()<=0){
-                            Visuals.clear();
-                            level+=1;
-                            user.scaleUp();
-                            user.heal();
-                            System.out.println(ImportWeapons.drop(rarity, user)); 
-                            Visuals.wait(sc);
-                            if(level%10==0){
-                                rarity++;
-                                System.out.println(ImportWeapons.dropSpecial(user));
+                        map = new Map();
+                        if(map.flappy()){
+
+                            if (level%5 == 0) {
+                                ennemy = new Boss(level);
+                            } else {
+                                ennemy = new Ennemy(level);
+                                
                             }
+                            fight(user, ennemy);
+                            System.out.flush();
+                            if(ennemy.getPv()<=0){
+                                Visuals.clear();
+                                level+=1;
+                                user.scaleUp();
+                                user.heal();
+                                System.out.println(ImportWeapons.drop(rarity, user));
+                                System.out.println(ImportWeapons.dropSpecial(user)); 
+                                Visuals.wait(sc);
+                                if(level%10==0){
+                                    rarity++;
+                                    System.out.println(ImportWeapons.dropSpecial(user));
+                                }
+                            }
+                        }
+                        else{
+                            user.takeDamage(1000000);
                         }
                     }
                     RecordManager.changeScore(level);
-                    end =true;
+                    Visuals.printGameOver();
+                    Visuals.wait(sc);
                     break;
                 case "2":
                     System.out.println("Le meilleur score c'est "+RecordManager.getBestScore());
