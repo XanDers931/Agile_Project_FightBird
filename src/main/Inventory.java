@@ -1,11 +1,12 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Inventory {
-    ArrayList<Item> inventory;
-    ArrayList<Item> cloneInventory;
+    private ArrayList<Item> inventory;
+    private ArrayList<Item> cloneInventory;
 
     private Item choice[] = new Item[]{null,null,null,null};
 
@@ -17,6 +18,10 @@ public class Inventory {
 
     public Inventory() {
         this.inventory = new ArrayList<Item>();
+    }
+
+    public ArrayList<Item> getInventory() {
+        return inventory;
     }
 
     public Item[] getChoice() {
@@ -40,10 +45,17 @@ public class Inventory {
 
         while (!finish){
         Visuals.clear(); 
+
             inventorySize = inventory.size();
             afficherChoix(curseur, itemSelection);
             
             System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
+
+            //System.out.println(inventory.toString());
+
+            //cloneInventory.sort(null);
+
+            //System.out.println(cloneInventory.toString());
 
             read = sc.nextLine();
             
@@ -270,17 +282,15 @@ public class Inventory {
 
     }
 
-    /*
     public static void main(String[] args) {
             Inventory inventory = new Inventory();
-            inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
             inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
             inventory.addItem(new Range("bow fofofofo", Type.RANGE, 0, 0, 0, 0, 0));
-            inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
+            inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
             inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
-            inventory.addItem(new Special("paper", Type.SPECIAL, 100, 100, 100, 1, TypeGame.SHIFUMI));
+            inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
+            inventory.addItem(new Special("paper", Type.SPECIAL, 100, 1, TypeGame.SHIFUMI));
             inventory.openInventory();
     }
-    */
 
 }
