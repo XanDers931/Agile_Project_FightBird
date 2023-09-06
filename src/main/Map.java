@@ -99,6 +99,7 @@ public class Map {
             else if(input.equals("d")){
                 xBackBird = xBird;
                 xBird++;
+                yBackBird = yBird;
                 System.out.println("You go right");
                 isFinished = true;
             }
@@ -130,12 +131,15 @@ public class Map {
             afficherMap();
             movement();
             if(checkPosWin()){
+                Visuals.clear();
                 return true;
             }
             if(checkPosDeath()){
+                Visuals.clear();
                 return false;
             }
             birdPosition();
+            Visuals.clear();
         }
         return false;
     }
