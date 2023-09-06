@@ -32,6 +32,7 @@ public class Range extends Item{
             return MISSED_HIT_DAMAGE;
         }else{
             if(this.hitCritical()){
+                System.out.println("You make a crit");
                 damage_value *= CRIT_MULTIPLIER;
             }
             return damage_value;

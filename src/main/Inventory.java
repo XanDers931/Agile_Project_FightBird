@@ -107,7 +107,7 @@ public class Inventory{
             System.out.println("                                   Control :");
             System.out.println("                            q and d to scroll weapon");
             System.out.println("                                e to confirm");
-            System.out.println("                           a to cancel last action");
+            //System.out.println("                           a to cancel last action");
             System.out.println();
             System.out.println("          Current usable item for this type : " + typeInventory.toString());
 
@@ -174,6 +174,7 @@ public class Inventory{
                 }
                 
             }
+            /*
             if (read.equals("a")){
                 if (progress != 0){
                     choice[progress] = null;
@@ -181,6 +182,7 @@ public class Inventory{
                     progress = progress - 1;
                 } 
             }
+            */
             if (progress == 4){
                 finish = true;
                 inventory = (ArrayList<Item>) cloneInventory.clone();
@@ -208,6 +210,12 @@ public class Inventory{
         System.out.print("│ Crit_rate : " + item.critical_rate); emptySpace(String.valueOf(item.critical_rate));  System.out.println("│");
         System.out.print("│ Accuracy  : " + item.accuracy); emptySpace(String.valueOf(item.accuracy));  System.out.println("│");
         System.out.print("│ Rarity    : " + item.rarity); emptySpace(String.valueOf(item.rarity));  System.out.println("│");
+        if (item.getType() == Type.RANGE){
+        System.out.print("│ Ammo use  : " + ((Range) item).getUse_ammo()); emptySpace(String.valueOf(((Range) item).getUse_ammo())); System.out.println("│");
+        }
+        if (item.getType() == Type.MAGIC){
+        System.out.print("│ Ammo use  : " + ((Magic) item).getUse_mana()); emptySpace(String.valueOf(((Magic) item).getUse_mana())); System.out.println("│");
+        }  
         System.out.println("└─────────────────────────────────┘");
     }
 

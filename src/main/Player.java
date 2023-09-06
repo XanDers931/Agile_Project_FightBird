@@ -8,7 +8,7 @@ public class Player {
     private static final int BASE_HEALTH = 100;
     private static final int BASE_ATTACK = 1;
     private static final int BASE_MANA = 100;
-    private static final String BASE_USERNAME = "Bird Wick";
+    private static final String BASE_USERNAME = "Flap-Flap";
     private static final int BASE_AMMO = 3;
     private static final Inventory BASE_INVENTORY = new Inventory(ImportWeapons.baseItems());
 
@@ -116,13 +116,13 @@ public class Player {
         ammo=ammo_max;
     }
 
-    public void scaleUp(){
+    public void scaleUp(int level){
         Scanner sc = new Scanner(System.in);
         boolean isFinished = false;
         String input;
         Visuals.clear();
 
-        System.out.println("Youhou you won the fight, you can now select a stats to augment !");
+        System.out.println("Youhou you reach the level"+ level +", you can now select a stats to augment !");
         System.out.println("Please choose a stat you want to up !");
         System.out.println("Input 1 to augment your Health point");
         System.out.println("Input 2 to augment your Attack damage multiplier");

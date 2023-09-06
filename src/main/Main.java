@@ -65,8 +65,11 @@ public class Main {
             menu();
             System.out.println(" Your Choice : ");
             select = sc.nextLine();
+            Visuals.clear();
             switch (select) {
                 case "1":
+                    Visuals.lore();
+                    Visuals.wait(sc);
                     while(user.getHealth_point()>0){
                         Visuals.clear();
                         map = new Map();
@@ -83,7 +86,7 @@ public class Main {
                             if(ennemy.getPv()<=0){
                                 Visuals.clear();
                                 level+=1;
-                                user.scaleUp();
+                                user.scaleUp(level);
                                 user.heal();
                                 if(level%5==0){
                                     if(rarity<5){
@@ -96,7 +99,7 @@ public class Main {
                             }
                         }
                         else{
-                            user.takeDamage(1000000);
+                            user.takeDamage(100000000);
                         }
                     }
                     RecordManager.changeScore(level);

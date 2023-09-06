@@ -10,9 +10,6 @@ public class RecordManager {
     private static void editBestScore(int score){
         String res = score+"";
         try (PrintWriter pw = new PrintWriter(new File(RECORD_PATH))) {
-            if(score > 2){
-                res += "s";
-            }
             pw.println(res);
             pw.flush();
             pw.close();
