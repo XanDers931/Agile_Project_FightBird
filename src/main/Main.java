@@ -13,6 +13,7 @@ public class Main {
         Fight fight = new Fight(player, ennemy);
         
         Scanner sc = new Scanner(System.in);
+        Visuals.randomSpeech(ennemy);
         String select = "";
         player.getInventory().openInventory();
         while(!fight.isFinished()){
@@ -35,7 +36,7 @@ public class Main {
                     break;
                 case "2":
                     fight.fight(player.getInventory().getChoice()[1]);
-                    break;
+                    break;  
                 case "3":
                     fight.fight(player.getInventory().getChoice()[2]);
                     break;
@@ -54,19 +55,21 @@ public class Main {
         Ennemy ennemy = new Ennemy();
         Scanner sc = new Scanner(System.in);
         String select = "";
-        int level = 0;
+        int level = 1;
         boolean end = false;
         int rarity = 1;
         Map map;
         while (!end) {
+            user = new Player();
+            ennemy = new Ennemy();
             menu();
-            System.out.println(" Votre Choix : ");
+            System.out.println(" Your Choice : ");
             select = sc.nextLine();
             switch (select) {
                 case "1":
                     while(user.getHealth_point()>0){
                         map = new Map();
-                        if(map.flappy()){
+                        if(map.flappy(rarity,user)){
 
                             if (level%5 == 0) {
                                 ennemy = new Boss(level);
@@ -81,11 +84,11 @@ public class Main {
                                 level+=1;
                                 user.scaleUp();
                                 user.heal();
-                                System.out.println(ImportWeapons.drop(rarity, user));
-                                System.out.println(ImportWeapons.dropSpecial(user)); 
                                 Visuals.wait(sc);
-                                if(level%10==0){
-                                    rarity++;
+                                if(level%5==0){
+                                    if(rarity<5){
+                                        rarity++;
+                                    }
                                     System.out.println(ImportWeapons.dropSpecial(user));
                                 }
                             }
