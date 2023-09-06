@@ -37,7 +37,7 @@ public class Fight {
             Range rangeItem = (Range) usedItem;
             player.decreaseAmmo(rangeItem.getUse_ammo());
         }
-            int damage = usedItem.damageTotal(player.getAttack_value());
+            int damage = usedItem.damageTotal(player.getAttack_value(), ennemy);
             ennemy.takeDamage(damage);
             System.out.println("you hit "+ damage);
         }

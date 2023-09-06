@@ -10,6 +10,7 @@ public class Inventory{
     private ArrayList<Item> inventory;
     private ArrayList<Item> cloneInventory;
 
+
     private Item choice[] = new Item[]{null,null,null,null};
 
     private final int BOXSIZE = 20;
@@ -44,25 +45,67 @@ public class Inventory{
         boolean finish = false;
 
         Collections.sort(inventory);
-
+        
         cloneInventory = (ArrayList<Item>) inventory.clone();
+        ArrayList<Item> typeInventory = new ArrayList<Item>();
+        int scroll = 0;
 
         while (!finish){
-        Visuals.clear(); 
-
+            Visuals.clear();
+            typeInventory.clear();
+            typeInventory.addAll(inventory);
             inventorySize = inventory.size();
+   
+                if (progress == 0){
+                    while (scroll < inventorySize){
+                        if (inventory.get(scroll).getType() != Type.MELEE){
+                            typeInventory.remove(inventory.get(scroll));
+                        }
+                        scroll = scroll + 1;
+                    }
+                }
+                    
+                if (progress == 1){
+                    while (scroll < inventorySize){
+                        if (inventory.get(scroll).getType() != Type.RANGE){
+                            typeInventory.remove(inventory.get(scroll));
+                        }
+                        scroll = scroll + 1;
+                    }
+                }
+
+            
+                if (progress == 2){
+                    while (scroll < inventorySize){
+                        if (inventory.get(scroll).getType() != Type.MAGIC){
+                            typeInventory.remove(inventory.get(scroll));
+                        }
+                        scroll = scroll + 1;
+                    }
+                }
+               
+                if (progress == 3){
+                    while (scroll < inventorySize){
+                        if (inventory.get(scroll).getType() != Type.SPECIAL){
+                            typeInventory.remove(inventory.get(scroll));
+                        }
+                        scroll = scroll + 1;
+                    }
+                }
+
+            inventorySize = typeInventory.size();
 
             System.out.println(" Choose your weapon for the next battle (One Melee,one Range,one Magic and one special in this order)");
-            afficherChoix(curseur, itemSelection);
-            itemDescription(inventory.get(itemSelection));
+            afficherChoix(curseur, itemSelection,typeInventory);
+            if(typeInventory.size()!=0){
+                itemDescription(typeInventory.get(itemSelection));
+            }
             
             System.out.println("q and d to scroll weapon, e to confirm, a to cancel (Only first charactere is take in count)");
 
-            System.out.println(inventory.toString());
+            System.out.println(" Current usable item : " + typeInventory.toString());
 
             read = sc.nextLine();
-            
-            // c = read.charAt(0);
 
             if (read.equals("q")){
                 if (itemSelection != 0){
@@ -75,32 +118,32 @@ public class Inventory{
                 }   
             }
             if (read.equals("e")){
-                if (progress == 0 && inventory.get(itemSelection).getType() == Type.MELEE){
-                    choice[progress] = inventory.get(itemSelection);
+                if (progress == 0 && typeInventory.get(itemSelection).getType() == Type.MELEE){
+                    choice[progress] = typeInventory.get(itemSelection);
                     moveCursorDown(curseur);
                     progress = progress + 1;
-                    inventory.remove(itemSelection);
+                    typeInventory.remove(itemSelection);
                     itemSelection = 0;    
                 } else if (progress == 0) {
                     System.out.println("Bad category of Item : you need MELEE item in slot 1");
                     Visuals.wait(sc);
                 }
-                else if (progress == 1 && inventory.get(itemSelection).getType() == Type.RANGE){
-                    choice[progress] = inventory.get(itemSelection);
+                else if (progress == 1 && typeInventory.get(itemSelection).getType() == Type.RANGE){
+                    choice[progress] = typeInventory.get(itemSelection);
                     moveCursorDown(curseur);
                     progress = progress + 1;
-                    inventory.remove(itemSelection);
+                    typeInventory.remove(itemSelection);
                     itemSelection = 0;    
                 }
                 else if (progress == 1) {
                     System.out.println("Bad category of Item : you need RANGE item in slot 2");
                     Visuals.wait(sc);
                 }
-                else if (progress == 2 && inventory.get(itemSelection).getType() == Type.MAGIC){
-                    choice[progress] = inventory.get(itemSelection);
+                else if (progress == 2 && typeInventory.get(itemSelection).getType() == Type.MAGIC){
+                    choice[progress] = typeInventory.get(itemSelection);
                     moveCursorDown(curseur);
                     progress = progress + 1;
-                    inventory.remove(itemSelection);
+                    typeInventory.remove(itemSelection);
                     itemSelection = 0;    
                 }
                 else if (progress == 2) {
@@ -109,21 +152,19 @@ public class Inventory{
                 }
                 else if(progress == 3 && !noSpecial()){
                     System.out.println("No special Item for slot 4...");
-                    choice[progress] = null;
+                    choice[progress] = new Special("Thinks",Type.SPECIAL,0,0,TypeGame.THINKING);
                     moveCursorDown(curseur);
                     progress = progress + 1;
-                    Visuals.wait(sc);
                 }
-                else if (progress == 3 && inventory.get(itemSelection).getType() == Type.SPECIAL){
-                    choice[progress] = inventory.get(itemSelection);
+                else if (progress == 3 && typeInventory.get(itemSelection).getType() == Type.SPECIAL){
+                    choice[progress] = typeInventory.get(itemSelection);
                     moveCursorDown(curseur);
                     progress = progress + 1;
-                    inventory.remove(itemSelection);
+                    typeInventory.remove(itemSelection);
                     itemSelection = 0;    
                 }
                 else if (progress == 3) {
                     System.out.println("Bad category of Item : you need SPECIAL item in slot 4");
-                    Visuals.wait(sc);
                 }
                 
             }
@@ -137,8 +178,10 @@ public class Inventory{
             if (progress == 4){
                 finish = true;
                 inventory = (ArrayList<Item>) cloneInventory.clone();
-            }          
-             
+            } 
+
+            scroll = 0;
+            typeInventory.clear();  
              
         }
         
@@ -222,7 +265,7 @@ public class Inventory{
         return res;
     }
 
-    public void afficherChoix(boolean[] curseur,int tmp){
+    public void afficherChoix(boolean[] curseur,int tmp, ArrayList<Item> typeInventory){
 
         String rep = "";
 
@@ -235,8 +278,8 @@ public class Inventory{
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[0] == true){
-            System.out.print(inventory.get(tmp).toString());
-            rep = inventory.get(tmp).toString();
+            System.out.print(typeInventory.get(tmp).toString());
+            rep = typeInventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[0] == null){
             System.out.print(" ------------------ ");
@@ -256,8 +299,8 @@ public class Inventory{
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[1] == true){
-            System.out.print(inventory.get(tmp).toString());
-            rep = inventory.get(tmp).toString();
+            System.out.print(typeInventory.get(tmp).toString());
+            rep = typeInventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[1] == null){
             System.out.print(" ------------------ ");
@@ -277,8 +320,8 @@ public class Inventory{
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[2] == true){
-            System.out.print(inventory.get(tmp).toString());
-            rep = inventory.get(tmp).toString();
+            System.out.print(typeInventory.get(tmp).toString());
+            rep = typeInventory.get(tmp).toString();
             emptySpace(rep);
         } else if (choice[2] == null){
             System.out.print(" ------------------ ");
@@ -298,9 +341,14 @@ public class Inventory{
         else {System.out.print("   ");}
         System.out.print("│");
         if (curseur[3] == true){
-            System.out.print(inventory.get(tmp).toString());
-            rep = inventory.get(tmp).toString();
-            emptySpace(rep);
+            if(typeInventory.size()!=0){
+                System.out.print(typeInventory.get(tmp).toString());
+                rep = typeInventory.get(tmp).toString();
+                emptySpace(rep);
+            }
+            else {
+                System.out.print(" ------------------ ");
+            }
         } else if (choice[3] == null){
             System.out.print(" ------------------ ");
         } else {
@@ -316,14 +364,16 @@ public class Inventory{
 
     }
 
+    /*
     public static void main(String[] args) {
             Inventory inventory = new Inventory();
             inventory.addItem(new Melee("sword of life", Type.MELEE, 100, 100, 100, 1));
-            inventory.addItem(new Range("bow fofofofo", Type.RANGE, 0, 0, 0, 0, 0));
             inventory.addItem(new Melee("sword of death", Type.MELEE, 100, 100, 100, 1));
-            inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
+            inventory.addItem(new Range("bow fofofofo", Type.RANGE, 0, 0, 0, 0, 0));
             inventory.addItem(new Range("bow of life", Type.RANGE, 100, 100, 100, 1, 0));
+            inventory.addItem(new Magic("staff of staff", Type.MAGIC, 100, 100, 100, 1, 0));
             inventory.openInventory();
     }
+    */
 
 }
