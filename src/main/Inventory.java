@@ -214,7 +214,7 @@ public class Inventory{
         System.out.print("│ Ammo use  : " + ((Range) item).getUse_ammo()); emptySpace(String.valueOf(((Range) item).getUse_ammo())); System.out.println("│");
         }
         if (item.getType() == Type.MAGIC){
-        System.out.print("│ Ammo use  : " + ((Magic) item).getUse_mana()); emptySpace(String.valueOf(((Magic) item).getUse_mana())); System.out.println("│");
+        System.out.print("│ Mana use  : " + ((Magic) item).getUse_mana()); emptySpace(String.valueOf(((Magic) item).getUse_mana())); System.out.println("│");
         }  
         System.out.println("└─────────────────────────────────┘");
     }
