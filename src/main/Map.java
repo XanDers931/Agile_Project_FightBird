@@ -139,6 +139,7 @@ public class Map {
         generateMap();
         while(!isFinished){
             afficherMap();
+            System.out.println("Use Z S D to move : ");
             movement();
             if(checkChest()){
                 Visuals.clear();
